@@ -1,112 +1,68 @@
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: 'Open Sans', sans-serif;
-      background-color: rgb(239, 247, 252);
-    }
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-set-2017, 15.47.42
+    Author     : rober
+*/
 
-    main {
-      flex: 1 0 auto;
-    }
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(239, 247, 252);
+}
 
+main {
+    flex: 1 0 auto;
+}
+
+.login {
+    width: 35%;
+}
+
+@media (max-width: 700px) {
     .login {
-      width: 35%;
-    }
-
-    @media (max-width: 700px) {
-      .login {
         width: 35%;
-      }
-      .login {
-        width: 90%;
-      }
     }
-    
-    @media (max-width: 700px) {
-      .signin {
-        width: 70%;
-        color: red;
-      }
-      .signin {
+    .login {
         width: 90%;
-        color: red;
-      }
     }
-    
- /* FORM */
-    /* label focus color */
- .input-field input:focus + label {
-   color: #0d47a1 !important;
- }
- /* label underline focus color */
- .row .input-field input:focus {
-   border-bottom: 1px solid #0d47a1 !important;
- }
- /* label color */
- .input-field label {
-   color: #2196f3;
- }
- /* label focus color */
- .input-field input[type=text]:focus + label {
-   color: #0d47a1;
- }
- /* label underline focus color */
- .input-field input[type=text]:focus {
-   border-bottom: 1px solid #2196f3;
-   box-shadow: 0 1px 0 0 #2196f3;
- }
- /* valid color */
- .input-field input[type=text].valid {
-   border-bottom: 1px solid #4caf50;
-   box-shadow: 0 1px 0 0 #4caf50;
- }
- /* invalid color */
- .input-field input[type=text].invalid {
-   border-bottom: 1px solid #ef5350;
-   box-shadow: 0 1px 0 0 #ef5350;
- }
- /* icon prefix focus color */
- .input-field .prefix.active {
-   color: #0d47a1;
- }
- 
- /* RADIOBUTTON */
- /* colore radiobt non checked */
- [type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after {
-  border: 2px solid #2196f3
 }
-
-[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
-  border: 2px solid #0d47a1
+/* label focus color */
+.input-field input:focus + label {
+    color: white !important;
 }
-
-[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
-  background-color: #0d47a1
+/* label underline focus color */
+.row .input-field input:focus {
+    border-bottom: 1px solid white !important;
 }
-
-[type="radio"].with-gap:disabled:checked+label:before {
-  border: 2px solid rgba(0, 0, 0, 0.42)
+/* label color */
+.input-field label {
+    color: white;
 }
-
-[type="radio"].with-gap:disabled:checked+label:after {
-  border: none;
-  background-color: rgba(0, 0, 0, 0.42)
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: white;
 }
-
-[type="radio"]:disabled:not(:checked)+label:before, [type="radio"]:disabled:checked+label:before {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.42)
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
 }
-
-[type="radio"]:disabled+label {
-  color: rgba(0, 0, 0, 0.42)
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
 }
-
-[type="radio"]:disabled:not(:checked)+label:before {
-  border-color: rgba(0, 0, 0, 0.42)
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
 }
-
-[type="radio"]:disabled:checked+label:after {
-  background-color: rgba(0, 0, 0, 0.42);
-  border-color: white
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: white;
 }
