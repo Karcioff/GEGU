@@ -33,27 +33,27 @@
                             <hr>
                             <!FORM>
                             <div class="row">
-                                <form class="col s12">
+                                <form class="col s12" id="formValidate">
                                     <!COLONNA 1>
                                     <div class="col s12 m12 l6">
                                         <div class="row">
-                                            <div class="input-field col s12">
+                                            <div class="input-field col s12">                                                
                                                 <i class="material-icons prefix">account_circle</i>
-                                                <input id="username" type="text" class="validate">
+                                                <input id="username" name="username" type="text">
                                                 <label for="username">Username</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">lock_open</i>
-                                                <input id="password" type="password" class="validate">
+                                                <input id="password" name="password" type="password">
                                                 <label for="password">Password</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">lock_open</i>
-                                                <input id="check_password" type="password" class="validate">
+                                                <input id="check_password" name="check_password" type="password">
                                                 <label for="check_password">Reinserisci password</label>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">email</i>
-                                                <input id="email" type="email" class="validate" >
+                                                <input id="email" name="email" type="email">
                                                 <label for="email">Indirizzo email</label>
                                             </div>
                                         </div>
@@ -100,11 +100,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="Js/signin_validation.js"></script>
     </body>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </html>
 
