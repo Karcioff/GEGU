@@ -69,4 +69,7 @@ $().ready(function () {
     });
 });
 
-//className = "invalid";
+//inizializza i SELECT
+  $(document).ready(function() {
+    $('select').material_select();
+  });

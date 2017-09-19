@@ -1,142 +1,151 @@
 <!DOCTYPE html>
 <html lang="it">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-  <title>GEGU - GEstionale GrUppo</title>
-  <head>
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  </head>
-  <style>
-    body {
-      display: flex;
-      min-height: 1024px;
-      flex-direction: column;
-      font-family: 'Open Sans', sans-serif;
-      background-color: rgb(239, 247, 252);
-    }
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+        <title>index</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-    main {
-      flex: 1 0 auto;
-    }
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                font-family: 'Open Sans', sans-serif;
+                background-color: rgb(239, 247, 252);
+            }
 
-    .parallax-container {
-      height: 600px;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-  </style>
+            main {
+                flex: 1 0 auto;
+            }
 
-  <body>
-    <nav class="light-blue lighten-1 z-depth-4" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">GE.GU</a>
-        <!--<ul class="right hide-on-med-and-down">
-          <li><a href="login.html">Login</a></li>
-        </ul>-->
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="section no-pad-bot" id="index-banner">
-      <div class="row col s10 m10 l10 blue-text" >
-        <br><br>
-        <h1 class="header center ">GE.GU</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Un sistema moderno e adattivo per la gestione di gruppi Scout</h5>
-        </div>
-        <div class="row center">
-          <a href="login.html" id="download-button" class="btn-large waves-effect waves-light blue">Login</a>
-        </div>
-        <br><br>
-      </div>
-      <div class="parallax-container z-depth-3">
-        <div class="parallax"><img src="images/mandriano.jpg"></div>
-      </div>
-      <div class="container  blue-text">
-        <br><br>
-        <h2 class="center ">Cosa può fare?</h2>
-        <div class="row center">
-          <div class="section">
-            <div class="row">
-              <div class="col s12 m4">
-                <div class="icon-block">
-                  <h2 class="center light-"><i class="large material-icons">flash_on</i></h2>
-                  <h5 class="center">Rapido ed efficiente</h5>
-                  <p class="light">Fai tutto velocemente e lavorando in gruppo, tutti avranno a disposizione questo strumento e gli stessi dati</p>
-                </div>
-              </div>
-
-              <div class="col s12 m4">
-                <div class="icon-block">
-                  <h2 class="center light-"><i class="large material-icons">assignment</i></h2>
-                  <h5 class="center">Gestisci gli eventi</h5>
-                  <p class="light">Organizza iscrizioni, comunicazioni e controlla il meteo per l'evento. Tutto i tempo reale!</p>
-                </div>
-              </div>
-
-              <div class="col s12 m4">
-                <div class="icon-block">
-                  <h2 class="center light-"><i class="large material-icons">insert_photo</i></h2>
-                  <h5 class="center">Salva i tuoi momenti</h5>
-                  <p class="light">Inserisci i più bei ricordi da poter poi rivedere.</p>
-                </div>
-              </div>
+            .parallax-container {
+                height: 600px;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="light-blue lighten-1 z-depth-1" role="navigation">
+            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo side">GE.GU</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="gest.html">Esci</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="gest.html" data-activates="nav-mobile" class="button-collapse "><i class="large large material-icons">exit</i></a>
             </div>
-          <div class="row center">
-            <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light blue">Scopri di più</a>
-          </div>
-        </div>
-      </div>
-    </div>
-      <footer class="page-footer blue">
+            <ul id="slide-out" class="side-nav blue-grey lighten-5">
+                <li>
+                    <div class="user-view black-text indigo darken-2">
+                        <a href="#!user"><img class="circle" src="images/agesci.png"></a>
+                        <a href="#!name"><span class="white-text name">Mandriano Doria</span></a>
+                        <a href="#!email"><span class="white-text email">mandriano@bue.com</span></a>
+                    </div>
+                </li>
+                <li><a class="subheader">Attività</a></li>
+                <li><a href="login.html" class="waves-effect"><i class="material-icons">person</i>LOGIN</a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">assignment</i>Eventi</a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">assignment_ind</i>Censiti</a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">euro_symbol</i>Finanza</a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">group</i>Co.Ca<span class="new badge" style="margin-left:15px;">1</span></a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">child_care</i>L/C</a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">explore</i>E/G</a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">directions_walk</i>R/S<span class="new badge" style="margin-left:15px;">4</span></a></li>
+                <li><a href="#!" class="waves-effect"><i class="material-icons">terrain</i>Campi estivi</a></li>
+                <!--<li>
+                  <div class="divider"></div>
+                </li>
+                <li><a class="subheader">Multimedia</a></li>
+                <li><a class="waves-effect" href="#!"><i class="material-icons">nature_people</i>Ricordi</a></li>-->
+            </ul>
+
+        </nav>
         <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Gruppo AGESCI Catene 1</h5>
-              <p class="grey-text text-lighten-4">Lavoriamo sul territorio per garantire la massima reperibilità della supercazzola stupefacente.</p>
+            <div class="col s12 m12">
+                <div class="card white z-depth-1">
+                    <div class="card-content blue-text">
+                        <span class="card-title black-text"><b>Richiesta di riunione</b></span>
+                        <p>I capi richiedono una riunione per trovare una maniera per entrare in una scarpa</p>
+                    </div>
+                    <div class="card-action grey lighten-5">
+                        <a href="#" class="blue-text">Accetta</a>
+                        <a href="#" class="blue-text">Rifiuta</a>
+                    </div>
+                </div>
             </div>
-            <div class="col l3 s12">
-              <h5 class="white-text" title="Sono incredibilmente interessato">Sandro's Facts</h5>
-              <ul>
-                <li><a class="white-text" href="#!" title="Incredibile!">Fact 1</a></li>
-                <li><a class="white-text" href="#!" title="Non l'avrei mai detto!">Fact 2</a></li>
-                <li><a class="white-text" href="#!" title="Impossibile!">Fact 3</a></li>
-                <li><a class="white-text" href="#!" title="Culo!">Fact 4</a></li>
-              </ul>
+
+            <!-- -->
+            <div class="col s12 m12">
+                <div class="card white z-depth-1">
+                    <div class="card-content blue-text">
+                        <span class="card-title black-text"><b>Appuntamento con: <u>Don Lio</u></b></span>
+                        <p>Mandriano, ti devi confessare. Ora.</p>
+                    </div>
+                    <div class="card-action grey lighten-5">
+                        <a href="#" class="blue-text">Accetta</a>
+                        <a href="#" class="blue-text">Rifiuta</a>
+                    </div>
+                </div>
             </div>
-            <div class="col l3 s12">
-              <h5 class="white-text" title="Sono incredibilmente interessato">Sandro's photo</h5>
-              <ul>
-                <li><a class="white-text" href="#!" title="Nuova aggiunta dalla PC!">Album 1</a></li>
-                <li><a class="white-text" href="#!" title="Il mio preferito!">Album 2</a></li>
-                <li><a class="white-text" href="#!" title="Non il mio preferito!">Album 3</a></li>
-                <li><a class="white-text" href="#!" title="Sgibini!">Album 4</a></li>
-              </ul>
+
+            <div class="col s12 m12">
+                <div class="card white z-depth-1">
+                    <div class="card-content blue-text">
+                        <span class="card-title black-text"><b>O.D.G. Co.Ca</b></span><br>
+                        <ul class="collection">
+                            <li class="collection-item">Fuochi d'autunno</li>
+                            <li class="collection-item">Verifica Staff</li>
+                            <li class="collection-item">Nuove Staff</li>
+                            <li class="collection-item">Guerra degli Akela</li>
+                        </ul>
+
+                    </div>
+                    <div class="card-action grey lighten-5">
+                        <a href="#" class="blue-text">Accetta</a>
+                        <a href="#" class="blue-text">Rifiuta</a>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="col s12 m12">
+                <div class="card white z-depth-1">
+                    <div class="card-content blue-text">
+                        <span class="card-title black-text"><b>O.D.G. Co.Ca mese successivo</b></span>
+                        <p>Fiesta.</p>
+                    </div>
+                    <div class="card-action grey lighten-5">
+                        <a href="#" class="blue-text">Accetta</a>
+                        <a href="#" class="blue-text">Rifiuta</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m12">
+                <div class="card white z-depth-1">
+                    <div class="card-content blue-text">
+                        <span class="card-title black-text"><b>Guidoncini verdi</b></span>
+                        <p>Richiesta presenza.</p>
+                    </div>
+                    <div class="card-action grey lighten-5">
+                        <a href="#" class="blue-text">Accetta</a>
+                        <a href="#" class="blue-text">Rifiuta</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-copyright">
-          <div class="container">
-            Software developed by: HEROES SOFTWARE ©2017
-          </div>
-        </div>
-      </footer>
-
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-  <script>
-    $(document).ready(function() {
-      $('.parallax').parallax();
-    });
-  </script>
-
+        <footer class="page-footer blue">
+            <div class="container row">
+                Software developed by: HEROES SOFTWARE ©2017
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script>$(".button-collapse").sideNav();</script>
+    </body>
 </html>

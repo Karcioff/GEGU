@@ -57,8 +57,8 @@ main {
 }
 /* valid color */
 .input-field input[type=text].valid {
-    border-bottom: 1px solid #009688;
-    box-shadow: 0 1px 0 0 #009688;
+    border-bottom: 1px solid #01579b;
+    box-shadow: 0 1px 0 0 #01579b;
 }
 /* invalid color */
 .input-field input[type=text].invalid {
@@ -67,8 +67,8 @@ main {
 }
 /* valid color */
 .input-field input[type=email].valid {
-    border-bottom: 1px solid #009688;
-    box-shadow: 0 1px 0 0 #009688;
+    border-bottom: 1px solid #01579b;
+    box-shadow: 0 1px 0 0 #01579b;
 }
 /* invalid color */
 .input-field input[type=email].invalid {
@@ -77,8 +77,8 @@ main {
 }
 /* valid color */
 .input-field input[type=password].valid {
-    border-bottom: 1px solid #009688;
-    box-shadow: 0 1px 0 0 #009688;
+    border-bottom: 1px solid #01579b;
+    box-shadow: 0 1px 0 0 #01579b;
 }
 /* invalid color */
 .input-field input[type=password].invalid {

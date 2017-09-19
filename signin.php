@@ -9,15 +9,6 @@
         <link rel="stylesheet" href="css/signin.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
-        <style>
-            body {
-                display: flex;
-                flex-direction: column;
-                font-family: 'Open Sans', sans-serif;
-                background-color: #64b5f6;
-            }
-        </style>
     </head>
 
     <body>
@@ -72,8 +63,8 @@
                                         <p>Che tipo di utente sei?</p>                            
                                         <hr>
                                         <br>
-                                        <div class="container">
-                                            <div class="row">
+                                        <div class="row">
+                                            <div class="col s12 m4 offset-m1">
                                                 <p>
                                                     <input class="with-gap" name="group1" type="radio" id="capoRadioBt"  />
                                                     <label for="capoRadioBt" class="blue-text">Capo</label>
@@ -87,15 +78,26 @@
                                                     <label for="genitore" class="blue-text">Genitore</label>
                                                 </p>
                                             </div>
+                                            <div class="col s12 m7">
+                                                <div class="input-field col s12">
+                                                    <select>
+                                                        <option value="" disabled selected>Seleziona la branca</option>
+                                                        <option value="1">Lupetti L/C</option>
+                                                        <option value="2">Reparto E/G</option>
+                                                        <option value="3">Noviziato e Clan R/S</option>
+                                                        <option value="4">Capogruppo</option> 
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
 
-                        <div class="card-action blue darken-1">
-                            <a href="gest.html" class="white-text">Conferma</a>
-                            <a href="index.html" class="white-text">Annulla</a>
+                        <div class="card-action blue darken-4">
+                            <a href="index.html" class="white-text">Conferma</a>
+                            <a href="gest.html" class="white-text">Annulla</a>
                         </div>
                     </div>
                 </div>
