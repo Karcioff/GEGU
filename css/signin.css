@@ -147,3 +147,10 @@ div.error {
 .select-wrapper ul li > span {
 	color: #2196f3;
 }
+
+/*DA SPOSTARE*/
+.container.small {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 93%
+}
