@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['log_username']) || $_SESSION['log_username']==""){
+    header("location: login.php?error=notlogged");
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -14,7 +20,7 @@
                 display: flex;
                 flex-direction: column;
                 font-family: 'Open Sans', sans-serif;
-                background-color: rgb(239, 247, 252);
+                background-color: #e3f2fd;
             }
 
             main {
@@ -49,7 +55,7 @@
                     </div>
                 </li>
                 <li><a class="subheader">Attività</a></li>
-                <li><a href="login.html" class="waves-effect"><i class="material-icons">person</i>Login</a></li>
+                <li><a href="login.php" class="waves-effect"><i class="material-icons">person</i>Login</a></li>
                 <li><a href="#!" class="waves-effect"><i class="material-icons">assignment</i>Eventi</a></li>
                 <li><a href="#!" class="waves-effect"><i class="material-icons">assignment_ind</i>Censiti</a></li>
                 <li><a href="#!" class="waves-effect"><i class="material-icons">euro_symbol</i>Finanza</a></li>
@@ -146,6 +152,15 @@
         </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script>$(".button-collapse").sideNav();</script>
+        <script>$(".button-collapse").sideNav();
+            $().ready(function () {
+                var username = "<?php echo ($_SESSION["log_username"]); ?>";
+                if (username != "") {
+                    Materialize.toast(username, 4000);
+                }
+            });
+        </script>
     </body>
 </html>
+
+

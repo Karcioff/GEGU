@@ -17,7 +17,7 @@
                 <div class="col s12 m12 l12">
 
                     <!CARD>
-                    <div class="card blue lighten-5 z-depth-3">
+                    <div class="card white z-depth-3">
                         <div class="card-content blue-text">
                             <span class="card-title">Registrati</span>
                             <p>Inserisci le tue credenziali per usufruire del potenziale di GEGU.</p>
