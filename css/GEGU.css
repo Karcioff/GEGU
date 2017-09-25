@@ -25,6 +25,12 @@ main {
     width: 70%;
 }
 
+.container.small {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 93%
+}
+
 @media only screen and (max-width: 650px) {
     .container.login {
         width: 70%;
@@ -46,19 +52,19 @@ main {
 /* FORM */
 /* label focus color */
 .input-field input:focus + label {
-    color: #0d47a1 !important;
+    color: #2196f3 !important;
 }
 /* label underline focus color */
 .row .input-field input:focus {
-    border-bottom: 1px solid #0d47a1 !important;
+    border-bottom: 1px solid #2196f3 !important;
 }
 /* label color */
 .input-field label {
-    color: #2196f3;
+    color: #0d47a1;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
-    color: #0d47a1;
+    color: #2196f3;
 }
 /* label underline focus color */
 .input-field input[type=text]:focus {
@@ -97,21 +103,30 @@ main {
 }
 /* icon prefix focus color */
 .input-field .prefix.active {
-    color: #0d47a1;
+    color: #2196f3;
+}
+
+/* label focus color TEXTAREA */
+.input-field textarea:focus + label {
+    color: #2196f3 !important;
+}
+/* label underline focus color TEXTAREA */
+.row .input-field textarea:focus {
+    border-bottom: 1px solid #2196f3 !important;
 }
 
 /* RADIOBUTTON */
 /* colore radiobt non checked */
 [type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after {
-    border: 2px solid #2196f3
-}
-
-[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
     border: 2px solid #0d47a1
 }
 
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+    border: 2px solid #2196f3
+}
+
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
-    background-color: #0d47a1
+    background-color: #2196f3
 }
 
 [type="radio"].with-gap:disabled:checked+label:before {
@@ -158,9 +173,22 @@ div.error {
     color: #2196f3;
 }
 
-/*DA SPOSTARE*/
-.container.small {
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 93%
+/*DATEPICKER*/
+.picker__date-display {
+  background-color:#0d47a1;
+}
+.picker__weekday-display {
+  background-color:#0d47a1;
+}
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+  background-color:#0d47a1;
+}
+.btn-flat{
+    color: #0d47a1;
+}
+.picker__day.picker__day--infocus.picker__day--today{
+    color: #2196f3;
+}
+.picker__day.picker__day--infocus.picker__day--today.picker__day--selected{
+    color: white
 }
