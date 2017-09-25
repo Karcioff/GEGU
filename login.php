@@ -20,8 +20,8 @@
         <div class="container login">
             <div class="row ">
                 <div class="col s12 m12 l12">
-                    <div class="card blue darken-2 z-depth-3">
-                        <div class="card-content white-text">
+                    <div class="card white z-depth-3">
+                        <div class="card-content blue-text">
                             <span class="card-title">Login</span>
                             <p>Accedi con le tue credenziali.</p>
                             <hr>
