@@ -17,7 +17,7 @@
             <div class="row ">
                 <div class="col s12 m12 l12">
                     <div class="card white z-depth-3">
-                        <div class="card-content blue-text">
+                        <div class="card-content blue-text text-darken-4">
                             <span class="card-title">Login</span>
                             <p>Accedi con le tue credenziali.</p>
                             <hr>

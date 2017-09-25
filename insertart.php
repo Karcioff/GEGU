@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
         <title>INSERICI ARTICOLO</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-        <link rel="stylesheet" href="css/signin.css">
+        <link rel="stylesheet" href="css/GEGU.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     </head>
 
     <body>
         <div class="container signin"> <!--        da sistemare lo stile-->
-            <div class="card blue lighten-5 z-depth-3">
+            <div class="card white z-depth-3">
                 <div class="card-content blue-text text-darken-4">                    
                     <span class="card-title blue-text text-darken-4">Inserisci l'articolo</span>
                     <p>Scrivi qui le informazioni che vuoi condividere con il resto del gruppo</p>
@@ -36,7 +36,7 @@
 
                             <!--inserimento file-->
                             <div class="file-field input-field col s12 m10 s8">
-                                <div class="btn">
+                                <div class="btn blue darken-4">
                                     <span>File</span>
                                     <input type="file" multiple>
                                 </div>

@@ -18,7 +18,7 @@
 
                     <!CARD>
                     <div class="card white z-depth-3">
-                        <div class="card-content blue-text">
+                        <div class="card-content blue-text text-darken-4">
                             <span class="card-title">Registrati</span>
                             <p>Inserisci le tue credenziali per usufruire del potenziale di GEGU.</p>
                             <hr>
@@ -67,15 +67,15 @@
                                             <div class="col s12 m4 offset-m1">
                                                 <p>
                                                     <input class="with-gap" name="group1" type="radio" id="capoRadioBt"  />
-                                                    <label for="capoRadioBt" class="blue-text">Capo</label>
+                                                    <label for="capoRadioBt" class="blue-text text-darken-4">Capo</label>
                                                 </p>
                                                 <p>
                                                     <input class="with-gap" name="group1" type="radio" id="ragazzo"  />
-                                                    <label for="ragazzo" class="blue-text">Adepto</label>
+                                                    <label for="ragazzo" class="blue-text text-darken-4">Adepto</label>
                                                 </p>
                                                 <p>
                                                     <input class="with-gap" name="group1" type="radio" id="genitore"  />
-                                                    <label for="genitore" class="blue-text">Genitore</label>
+                                                    <label for="genitore" class="blue-text text-darken-4">Genitore</label>
                                                 </p>
                                             </div>
                                             <div class="col s12 m7">
