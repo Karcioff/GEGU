@@ -13,23 +13,35 @@ main {
     flex: 1 0 auto;
 }
 
-@media (max-width: 700px) {
-    .login {
-        width: 35%;
+.container.login {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 50%;
+}
+
+.container.signin {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 70%;
+}
+
+@media only screen and (max-width: 650px) {
+    .container.login {
+        width: 70%;
     }
-    .login {
-        width: 90%;
+    .container.signin {
+        width: 87%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .container.login {
+        width: 95%;
+    }
+    .container.signin {
+        width: 95%;
     }
 }
 
-@media (max-width: 700px) {
-    .signin {
-        width: 70%;
-    }
-    .signin {
-        width: 90%;
-    }
-}
 
 /* FORM */
 /* label focus color */
