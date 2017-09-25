@@ -13,10 +13,6 @@
 
 
     <body>
-        <?php
-        session_start();
-        if(isset($_GET['error']) && $_GET['error']=='notlogged') echo "<h1> NON SEI LOGGATO BIRBANTELLO</h1>";
-        ?>
         <div class="container login">
             <div class="row ">
                 <div class="col s12 m12 l12">
@@ -29,14 +25,14 @@
                                 <form id="loginForm" class="col s12" method="post" action="./functions/autentication.php">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">email</i>
+                                            <i class="material-icons prefix">account_circle</i>
                                             <input id="log_username" name="log_username" type="text" class="validate">
                                             <label for="log_username">Username</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">security</i>
+                                            <i class="material-icons prefix">lock_open</i>
                                             <input id="log_password" name="log_password" type="password" class="validate">
                                             <label for="log_password">Password</label>
                                         </div>
