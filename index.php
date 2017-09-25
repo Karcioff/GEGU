@@ -8,6 +8,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] && isset($_SESSION['log_us
 //FUNZIONI INDEX PAGE
 function navbar($logged) {
     if ($logged) {
+        //utente LOGGATO
         echo '        <nav class="light-blue lighten-1 z-depth-1" role="navigation">
             <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
             <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo side">GE.GU ' . $_SESSION["log_username"] . '</a>
@@ -37,9 +38,12 @@ function navbar($logged) {
                 <li><a href="#!" class="waves-effect"><i class="material-icons">explore</i>E/G</a></li>
                 <li><a href="#!" class="waves-effect"><i class="material-icons">directions_walk</i>R/S<span class="new badge" style="margin-left:15px;">4</span></a></li>
                 <li><a href="#!" class="waves-effect"><i class="material-icons">terrain</i>Campi estivi</a></li>
+                <li><a href="insertart.php" class="waves-effect"><i class="material-icons">comment</i>Aggiungi articolo</a></li>
             </ul>
         </nav>';
-    } else {
+    }
+    // utente OSPITE
+    else {
         echo '        <nav class="light-blue lighten-1 z-depth-1" role="navigation">
             <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
             <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo side">GE.GU utente ospite</a>
@@ -74,7 +78,7 @@ function navbar($logged) {
     }
 }
 
-;
+
 
 
 //INIZIO PAGINA
