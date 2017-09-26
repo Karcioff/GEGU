@@ -1,7 +1,7 @@
 <?php
 session_start();
 $logged = false;
-if (isset($_SESSION['logged']) && $_SESSION['logged'] && isset($_SESSION['log_username']) && $_SESSION['log_username'] != "") {
+if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION['log_username']) && $_SESSION['log_username'] != "") {
     $logged = true;
 };
 
@@ -78,9 +78,6 @@ function navbar($logged) {
     }
 }
 
-
-
-
 //INIZIO PAGINA
 echo '<!DOCTYPE html>
 <html lang="it">
@@ -108,15 +105,21 @@ echo '<footer class="page-footer blue">
 <script>$(".button-collapse").sideNav();</script>';
 
 if ($logged) {
-    echo ' <script> $().ready(function () {
-                var username = ' . $_SESSION["log_username"] . ';
-                if (username != "") {
-                    Materialize.toast(username, 4000);
-                }
+    echo '<script> $().ready(function () {
+                var username = "' . $_SESSION['log_username'] . '";               
+                    Materialize.toast(username, 4000);                
             }); </script>';
+};
+
+if (isset($_SESSION['art_inserted']) && $_SESSION['art_inserted'] == true) {
+    echo ' <script> $().ready(function () {              
+                    Materialize.toast( "Articolo pubblicato con successo", 2000);                
+ }); </script>';
+    unset($_SESSION['art_inserted']);
 };
 echo '</body>
 </html>';
+exit();
 ?>
 
 <!--<div class="container">
