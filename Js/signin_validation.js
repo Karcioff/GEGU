@@ -9,7 +9,7 @@ $().ready(function () {
             reg_username: {
                 required: true,
                 minlength: 2,
-                remote: "validate_username.php",
+                remote: "functions/validations/validate_username.php",
             },
             reg_password: {
                 required: true,
