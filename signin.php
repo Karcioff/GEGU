@@ -109,7 +109,8 @@
                         </div>
 
                         <div class="card-action blue darken-4">
-                            <a href="#" onclick="document.getElementById('reg_form').submit();" class="white-text">Conferma</a>
+                            <a href="#" onclick= "submit()"
+                               class="white-text">Conferma</a>
                             <a href="gest.html" class="white-text">Annulla</a>
                         </div>
                     </div>

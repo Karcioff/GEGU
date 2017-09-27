@@ -10,7 +10,7 @@ if (!isset($_GET['reg_username'])) {
 }
 include '../../connection/connect.php';
 
-$username = $conn->real_escape_string(filter_var($_GET['reg_username'], FILTER_SANITIZE_EMAIL));
+$username = $conn->real_escape_string(filter_var($_GET['reg_username'], FILTER_SANITIZE_STRING));
 
 $sql = "SELECT * FROM login WHERE log_username = ? ";
 

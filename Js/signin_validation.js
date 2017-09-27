@@ -9,7 +9,7 @@ $().ready(function () {
             reg_username: {
                 required: true,
                 minlength: 2,
-                remote: "functions/validations/validate_username.php",
+                remote: "functions/validations/validate_username.php"
             },
             reg_password: {
                 required: true,
@@ -22,7 +22,8 @@ $().ready(function () {
             },
             reg_email: {
                 required: true,
-                email: true
+                email: true,
+                remote: "functions/validations/validate_email.php"
             }
         },
         messages: {
@@ -42,7 +43,8 @@ $().ready(function () {
             },
             reg_email: {
                 required: "Inserisci un indirizzo email",
-                email: "Inserisci un indirizzo valido"
+                email: "Inserisci un indirizzo valido",
+                remote: "Indirizzo email già presente"
             }
         },
         errorElement: 'div',
@@ -58,18 +60,26 @@ $().ready(function () {
             }
             ;
         },
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass("invalid").removeClass(validClass);
-            $(element.form).find("label[for=" + element.id + "]")
-                    .addClass(errorClass);
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass("invalid").addClass(validClass);
-            $(element.form).find("label[for=" + element.id + "]")
-                    .removeClass(errorClass);
-        }
+//        highlight: function (element, errorClass, validClass) {
+//            $(element).addClass("invalid").removeClass(validClass);
+//            $(element.form).find("label[for=" + element.id + "]")
+//                    .addClass(errorClass);
+//        },
+//        unhighlight: function (element, errorClass, validClass) {
+//            $(element).removeClass("invalid").addClass(validClass);
+//            $(element.form).find("label[for=" + element.id + "]")
+//                    .removeClass(errorClass);
+//        }
     });
 });
+
+function submit(){
+    var validator = $("#reg_form").validate(); 
+    validator.form();     
+    if (validator.numberOfInvalids() === 0){
+        document.getElementById('reg_form').submit();
+    }
+}
 
 //inizializza i SELECT
   $(document).ready(function() {
