@@ -7,7 +7,7 @@ $password = $_POST["log_password"];                                             
 
 $sql = "SELECT * FROM login WHERE LOG_USERNAME='" . $username . "' AND LOG_PASSWORD ='" . $password . "'";
 $result = $conn->query($sql);  //per selezionare nel db l'utente e pw che abbiamo appena scritto nel log
-
+$conn->close();
 
 if ($result->num_rows != 0) {        //se c'è una persona con quel nome nel db allora loggati
     $row = $result->fetch_assoc();

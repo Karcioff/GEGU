@@ -4,41 +4,43 @@
  * and open the template in the editor.
  */
 $().ready(function () {
-    $("#formValidate").validate({
+    $("#reg_form").validate({
         rules: {
-            username: {
+            reg_username: {
                 required: true,
-                minlength: 2
+                minlength: 2,
+                remote: "validate_username.php",
             },
-            password: {
+            reg_password: {
                 required: true,
                 minlength: 5
             },
-            check_password: {
+            reg_check_password: {
                 required: true,
                 minlength: 5,
-                equalTo: "#password"
+                equalTo: "#reg_password"
             },
-            email: {
+            reg_email: {
                 required: true,
                 email: true
             }
         },
         messages: {
-            username: {
+            reg_username: {
                 required: "Per favore, inserisci Username",
-                minlength: "Un piccolo sforzo: deve essere di almeno 2 caratteri"
+                minlength: "Un piccolo sforzo: deve essere di almeno 2 caratteri",
+                remote: "Username già esistente"
             },
-            password: {
+            reg_password: {
                 required: "Inserisci una password, è per la tua sicurezza",
                 minlength: "Deve essere lunga almeno 5 caratteri, altrimenti serve a poco"
             },
-            check_password: {
+            reg_check_password: {
                 required: "Reinserisci password per il controllo",
                 minlength: "Forse è troppo corta",
                 equalTo: "O qui o sopra hai sbagliato qualcosa"
             },
-            email: {
+            reg_email: {
                 required: "Inserisci un indirizzo email",
                 email: "Inserisci un indirizzo valido"
             }
