@@ -19,24 +19,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <style>
-            body {
-                display: flex;
-                flex-direction: column;
-                font-family: 'Open Sans', sans-serif;
-                background-color: rgb(239, 247, 252);
-            }
-
-            main {
-                flex: 1 0 auto;
-            }
-
-            .parallax-container {
-                height: 600px;
-                background-repeat: no-repeat;
-                background-size: contain;
-            }
-        </style>
+        <link rel="stylesheet" href="css/GEGU.css">
     </head>
     <body>
         <?php
@@ -47,46 +30,27 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION
         <!--Inserimento articoli -->
         <div class="container">
             <?php
-            if ($logged) {
-                $res = '';
-                $result = $conn->query("SELECT * FROM articoli");
-                while ($row = $result->fetch_assoc()) {
-                    $aut = $row["ART_AUTORE"];
-                    $tit = $row["ART_TITOLO"];
-                    $art = $row["ART_TESTO"];
-                    echo <<<HTML
-                '<div class = "col s12 m12">
-                        <div class = "card white z-depth-1">
-                            <div class = "card-content blue-text">
-                                <span class = "card-title black-text"><b>$tit</b></span>
-                                <p>$art</p>
-                                <small>By : $aut</small>
-                            </div>
-                            <div class = "card-action grey lighten-5">
-                                <a href = "#" class = "blue-text">Accetta</a>
-                                <a href = "#" class = "blue-text">Rifiuta</a>
-                            </div>
-                        </div>
-                </div >
-HTML;
-                }
+            $result = $conn->query("SELECT * FROM articoli");
+            while ($row = $result->fetch_assoc()) {
+                $aut = $row["ART_AUTORE"];
+                $tit = $row["ART_TITOLO"];
+                $art = $row["ART_TESTO"];
+                draw_art($tit, $art, $aut);
             }
             ?>
         </div>
+        <?php
+        modal_message();
+        draw_footer();
+        ?>
 
-        <footer class="page-footer blue">
-            <div class="container row">
-                Software developed by: HEROES SOFTWARE ©2017
-            </div>
-        </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script>$(".button-collapse").sideNav();</script>
         <?php
-        modal_message();
         if ($logged) {
             echo '<script> $().ready(function () {
-                var username = "' . $_SESSION['log_username'] . '";               
+                var username = "Buongiorno "+"' . $_SESSION['log_username'] . '";               
                     Materialize.toast(username, 4000);                
             }); </script>';
         }

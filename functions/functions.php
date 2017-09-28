@@ -7,16 +7,36 @@
  * per elemento: default e personalizzata
  */
 
+function draw_art($tit, $art, $aut) {
+    echo '<div class = "col s12 ">
+                        <div class = "card white z-depth-3">
+                            <div class = "card-content black-text">
+                                <span class = "card-title blue-text text-darken-4"><b>' . $tit . '</b></span>
+                                <p>' . $art . '</p>
+                                <br>
+                                <small>Autore :' . $aut . '</small>
+                            </div>
+                            <div class = "card-action blue lighten-5 right-align">
+                                <a href = "#" class = "blue-text text-darken-4">Accetta</a>
+                                <a href = "#" class = "blue-text text-darken-4">Rifiuta</a>
+                            </div>
+                        </div>
+                </div >';
+}
+
 function draw_navbar($login) {
     if (!$login) {
-        echo "    <nav class='blue darken-1 z-depth-1' role='navigation'>
+        echo "<div class='navbar-fixed'>    
+            <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
             <div class='nav-wrapper container'><a id='logo-container' href='#' class='brand-logo side'>GE.GU</a>
                 <ul id='nav-mobile' class='side-nav'>
                     <li><a href='#'>Navbar Link</a></li>
                 </ul>
-            </div>
-            <ul id='slide-out' class='side-nav white'>
+            </div>          
+        </nav> 
+        </div>
+        <ul id='slide-out' class='side-nav white'>
                 <li>
                     <div class='user-view black-text blue darken-4'>
                         <a href='#!user'><img class='circle' src='images/agesci.png'></a>
@@ -35,7 +55,7 @@ function draw_navbar($login) {
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
             </ul>
-    </nav>";
+    ";
     } else {
         echo "<nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
@@ -69,6 +89,14 @@ function draw_navbar($login) {
             </ul>
         </nav>";
     }
+}
+
+function draw_footer() {
+    echo '        <footer class="page-footer blue">
+            <div class="container row">
+                Software developed by: HEROES SOFTWARE ©2017
+            </div>
+        </footer>';
 }
 
 function printLoginForm() {
