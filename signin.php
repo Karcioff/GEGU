@@ -107,10 +107,9 @@
                             </div>
                         </div>
 
-                        <div class="card-action blue darken-4">
-                            <a href="#" onclick= "register()"
-                               class="white-text">Conferma</a>
-                               <a href="#" class="white-text" onclick="modal('chiappette','culetti')">Annulla</a>
+                        <div class="card-action blue darken-4 right-align">
+                            <a href="#" onclick= "register()" class="white-text">Conferma</a>
+                               <a href="#" class="white-text" onclick="resetForm()">Annulla</a>
                         </div>
                     </div>
                 </div>

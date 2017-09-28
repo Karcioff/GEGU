@@ -91,6 +91,12 @@ function submit() {
     }
 }
 
+function resetForm() {
+    var validator = $("#reg_form").validate();
+    validator.resetForm();
+    window.location = "index.php";
+}
+
 function register() {
     var username = $("#reg_username").val();
     var password = $("#reg_password").val();

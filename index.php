@@ -3,6 +3,7 @@
 <?php
 session_start();
 require_once 'connection/connect.php';
+require_once 'functions/functions.php';
 $logged = false;
 if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION['log_username']) && $_SESSION['log_username'] != "") {
     $logged = true;
@@ -39,75 +40,9 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION
     </head>
     <body>
         <?php
-        if ($logged) {
-            echo '<nav class="light-blue lighten-1 z-depth-1" role="navigation">
-            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo side">GE.GU ' . $_SESSION["log_username"] . '</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="gest.html">Esci</a></li>
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Navbar Link</a></li>
-                </ul>
-                <a href="gest.html" data-activates="nav-mobile" class="button-collapse "><i class="large large material-icons">exit</i></a>
-            </div>
-            <ul id="slide-out" class="side-nav blue-grey lighten-5">
-                <li>
-                    <div class="user-view black-text indigo darken-2">
-                        <a href="#!user"><img class="circle" src="images/agesci.png"></a>
-                        <a href="#!name"><span class="white-text name">' . $_SESSION['log_username'] . '</span></a>
-                        <a href="#!email"><span class="white-text email">' . $_SESSION['log_email'] . '</span></a>
-                    </div>
-                </li>
-                <li><a class="subheader">Attività</a></li>
-                <li><a href="login.php" class="waves-effect"><i class="material-icons">person</i>Login</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">assignment</i>Eventi</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">assignment_ind</i>Censiti</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">euro_symbol</i>Finanza</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">group</i>Co.Ca<span class="new badge" style="margin-left:15px;">1</span></a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">child_care</i>L/C</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">explore</i>E/G</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">directions_walk</i>R/S<span class="new badge" style="margin-left:15px;">4</span></a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">terrain</i>Campi estivi</a></li>
-                <li><a href="insertart.php" class="waves-effect"><i class="material-icons">comment</i>Aggiungi articolo</a></li>
-            </ul>
-        </nav>';
-        }
-        // utente OSPITE
-        else {
-            echo '        <nav class="light-blue lighten-1 z-depth-1" role="navigation">
-            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo side">GE.GU utente ospite</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="gest.html">Esci</a></li>
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Navbar Link</a></li>
-                </ul>
-                <a href="gest.html" data-activates="nav-mobile" class="button-collapse "><i class="large large material-icons">exit</i></a>
-            </div>
-            <ul id="slide-out" class="side-nav blue-grey lighten-5">
-                <li>
-                    <div class="user-view black-text indigo darken-2">
-                        <a href="#!user"><img class="circle" src="images/agesci.png"></a>
-                        <a href="#!name"><span class="white-text name">Mandriano Doria</span></a>
-                        <a href="#!email"><span class="white-text email">mandriano@bue.com</span></a>
-                    </div>
-                </li>
-                <li><a class="subheader">Attività</a></li>
-                <li><a href="login.php" class="waves-effect"><i class="material-icons">person</i>Login</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">assignment</i>Eventi</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">assignment_ind</i>Censiti</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">euro_symbol</i>Finanza</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">group</i>Co.Ca<span class="new badge" style="margin-left:15px;">1</span></a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">child_care</i>L/C</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">explore</i>E/G</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">directions_walk</i>R/S<span class="new badge" style="margin-left:15px;">4</span></a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">terrain</i>Campi estivi</a></li>
-            </ul>
-        </nav>';
-        }
+        draw_navbar($logged);
         ?>
+
 
         <!--Inserimento articoli -->
         <div class="container">
@@ -148,8 +83,7 @@ HTML;
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script>$(".button-collapse").sideNav();</script>
         <?php
-            require './functions/functions.php';
-            modal_message();
+        modal_message();
         if ($logged) {
             echo '<script> $().ready(function () {
                 var username = "' . $_SESSION['log_username'] . '";               

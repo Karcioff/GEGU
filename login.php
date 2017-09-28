@@ -40,7 +40,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-action blue darken-3">
+                        <div class="card-action blue darken-3 right-align">
                             <a href="#" class="white-text" onclick="autenticate();">Accedi</a>
                             <a href="signin.php" class="white-text">registrati</a>
                         </div>

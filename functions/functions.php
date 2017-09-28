@@ -7,6 +7,70 @@
  * per elemento: default e personalizzata
  */
 
+function draw_navbar($login) {
+    if (!$login) {
+        echo "    <nav class='blue darken-1 z-depth-1' role='navigation'>
+            <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
+            <div class='nav-wrapper container'><a id='logo-container' href='#' class='brand-logo side'>GE.GU</a>
+                <ul id='nav-mobile' class='side-nav'>
+                    <li><a href='#'>Navbar Link</a></li>
+                </ul>
+            </div>
+            <ul id='slide-out' class='side-nav white'>
+                <li>
+                    <div class='user-view black-text blue darken-4'>
+                        <a href='#!user'><img class='circle' src='images/agesci.png'></a>
+                        <a href='#!name'><span class='white-text name'>Utente ospite</span></a>
+                        <a href='#!name'><span class='white-text email'>Accedi per ulteriori funzionalità</span></a>
+                    </div>
+                </li>
+                <li><a class='subheader'>Attività</a></li>
+                <li><a href='login.php' class='waves-effect'><i class='material-icons'>person</i>Login</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment</i>Eventi</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment_ind</i>Censiti</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>euro_symbol</i>Finanza</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>group</i>Co.Ca<span class='new badge' style='margin-left:15px;'>1</span></a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>child_care</i>L/C</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
+            </ul>
+    </nav>";
+    } else {
+        echo "<nav class='blue darken-1 z-depth-1' role='navigation'>
+            <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
+            <div class='nav-wrapper container'><a id='logo-container' href='#' class='brand-logo side'>GE.GU " . $_SESSION['log_username'] . "</a>
+                <ul class='right hide-on-down'>
+                    <li><a href='functions/logout.php'>Esci</a></li>
+                </ul>
+                <ul id='nav-mobile' class='side-nav'>
+                    <li><a href='#'>Navbar Link</a></li>
+                </ul>
+                <a href='functions/logout.php' data-activates='nav-mobile' class='button-collapse'><i class='large large material-icons'>exit</i></a>
+            </div>
+            <ul id='slide-out' class='side-nav white'>
+                <li>
+                    <div class='user-view black-text blue darken-4'>
+                        <a href='#!user'><img class='circle' src='images/agesci.png'></a>
+                        <a href='#!name'><span class='white-text name'>" . $_SESSION['log_username'] . "</span></a>
+                        <a href='#!email'><span class='white-text email'>" . $_SESSION['log_email'] . "</span></a>
+                    </div>
+                </li>
+                <li><a class='subheader'>Attività</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment</i>Eventi</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment_ind</i>Censiti</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>euro_symbol</i>Finanza</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>group</i>Co.Ca<span class='new badge' style='margin-left:15px;'>1</span></a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>child_care</i>L/C</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
+                <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
+                <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
+            </ul>
+        </nav>";
+    }
+}
+
 function printLoginForm() {
     $login = <<<HTML
         <div class="container login"><div class="row ">
@@ -108,22 +172,23 @@ HTML;
     return $head;
 }
 
-function printDefaultHeader(){
-    $header=<<<HTML
+function printDefaultHeader() {
+    $header = <<<HTML
             <!DOCTYPE html>
                 <html lang="it">
 HTML;
     return $header;
 }
-function printDefaultEndPage(){
-    $end=<<<HTML
+
+function printDefaultEndPage() {
+    $end = <<<HTML
                 </html>
 HTML;
     return $end;
 }
 
-function modal_message(){
-echo '<div id="modal" class="modal">
+function modal_message() {
+    echo '<div id="modal" class="modal">
     <div class="modal-content">
       <h4 id="modal_title">Modal Header</h4>
       <p id= "modal_text">A bunch of text</p>
@@ -133,5 +198,5 @@ echo '<div id="modal" class="modal">
     </div>
   </div>';
 }
-  
+
 ?>
