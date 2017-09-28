@@ -15,7 +15,7 @@ $username = $conn->real_escape_string(filter_var($_GET['reg_username'], FILTER_S
 $sql = "SELECT * FROM login WHERE log_username = ? ";
 
 /* create a prepared statement */
-if ($stmt = $conn->prepare("SELECT * FROM login WHERE log_username = ?")) {
+if ($stmt = $conn->prepare($sql)) {
 
     /* bind parameters for markers */
     $stmt->bind_param("s", $username);

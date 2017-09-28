@@ -22,7 +22,7 @@
                             <p>Accedi con le tue credenziali.</p>
                             <hr>
                             <div class="row">
-                                <form id="loginForm" class="col s12" method="post" action="./functions/autentication.php">
+                                <form id="log_form" name="log_form" class="col s12" method="post" action="./functions/autentication.php">
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="card-action blue darken-3">
-                            <a href="#" class="white-text" onclick="document.getElementById('loginForm').submit();">Accedi</a>
+                            <a href="#" class="white-text" onclick="autenticate();">Accedi</a>
                             <a href="signin.php" class="white-text">registrati</a>
                         </div>
                     </div>
@@ -49,7 +49,9 @@
             </div>
         </div>   
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="Js/login.js"></script>
     </body>
 
 </html>
