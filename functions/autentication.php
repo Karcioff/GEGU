@@ -22,6 +22,8 @@ if ($stmt = $conn->prepare($sql)) {
         $hash = $log_password;
         if (!password_verify($password, $hash)) {
             $result = json_encode(array("username" => "ok", "password" => "Password errata"));
+            $stmt->close();
+            $conn->close();
             echo $result;
             return $result;
         }
@@ -36,10 +38,14 @@ if ($stmt = $conn->prepare($sql)) {
         $_SESSION["log_cognome"] = $log_cognome;
         $_SESSION["log_id"] = $log_id;
 
+        $stmt->close();
+        $conn->close();
         echo $result;
         return $result;
     } else {
         $result = json_encode(array("username" => "Username inesistente", "password" => "ok"));
+        $stmt->close();
+        $conn->close();
         echo $result;
         return $result;
     }
