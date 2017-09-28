@@ -148,6 +148,8 @@ HTML;
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script>$(".button-collapse").sideNav();</script>
         <?php
+            require './functions/functions.php';
+            modal_message();
         if ($logged) {
             echo '<script> $().ready(function () {
                 var username = "' . $_SESSION['log_username'] . '";               
@@ -161,4 +163,6 @@ HTML;
  }); </script>';
             unset($_SESSION['art_inserted']);
         }
-?>
+        ?>
+    </body>
+</html>

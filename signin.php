@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="it">
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
@@ -79,15 +78,15 @@
                                         <div class="row">
                                             <div class="col s12 m4 offset-m1">
                                                 <p>
-                                                    <input class="with-gap" name="reg_ruolo" type="radio" id="reg_capoRadioBt"  />
+                                                    <input class="with-gap" name="reg_ruolo" type="radio" id="reg_capoRadioBt" value="capo" checked="true"  />
                                                     <label for="reg_capoRadioBt" class="blue-text text-darken-4">Capo</label>
                                                 </p>
                                                 <p>
-                                                    <input class="with-gap" name="reg_ruolo" type="radio" id="reg_ragazzo"  />
+                                                    <input class="with-gap" name="reg_ruolo" type="radio" id="reg_ragazzo" value="ragazzo"  />
                                                     <label for="reg_ragazzo" class="blue-text text-darken-4">Adepto</label>
                                                 </p>
                                                 <p>
-                                                    <input class="with-gap" name="reg_ruolo" type="radio" id="reg_genitore"  />
+                                                    <input class="with-gap" name="reg_ruolo" type="radio" id="reg_genitore" value="genitore" />
                                                     <label for="reg_genitore" class="blue-text text-darken-4">Genitore</label>
                                                 </p>
                                             </div>
@@ -109,14 +108,18 @@
                         </div>
 
                         <div class="card-action blue darken-4">
-                            <a href="#" onclick= "submit()"
+                            <a href="#" onclick= "register()"
                                class="white-text">Conferma</a>
-                            <a href="gest.html" class="white-text">Annulla</a>
+                               <a href="#" class="white-text" onclick="modal('chiappette','culetti')">Annulla</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>     
+        </div> 
+        <?php
+        require './functions/functions.php';
+        modal_message();
+        ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

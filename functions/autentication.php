@@ -2,9 +2,9 @@
 
 session_start();
 include("../connection/connect.php");
+
 $username = filter_var($_POST["log_username"], FILTER_SANITIZE_STRING);
 $password = filter_var($_POST["log_password"], FILTER_SANITIZE_STRING);
-
 
 $sql = "SELECT * FROM login WHERE LOG_USERNAME= ?";
 if ($stmt = $conn->prepare($sql)) {
@@ -50,4 +50,3 @@ if ($stmt = $conn->prepare($sql)) {
         return $result;
     }
 }
-

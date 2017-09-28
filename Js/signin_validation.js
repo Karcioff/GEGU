@@ -3,6 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//modal di successo registrazione
+function modal(title, text) {
+    document.getElementById("modal_title").textContent = title;
+    document.getElementById("modal_text").textContent = text;
+    $('.modal').modal({
+        complete: function () {
+            window.location = "index.php";
+        }
+    });
+    $('#modal').modal('open');
+}
+
 $().ready(function () {
     $("#reg_form").validate({
         rules: {
@@ -51,15 +64,12 @@ $().ready(function () {
         errorPlacement: function (error, element) {
             var placement = $(element).data('error');
             if (placement) {
-                $(placement).append(error);
-                console.log("caso 1");
-
+                $(placement).append(error);                
             } else {
                 error.insertAfter(element);
-                console.log("caso 2");
             }
             ;
-        },
+        }
 //        highlight: function (element, errorClass, validClass) {
 //            $(element).addClass("invalid").removeClass(validClass);
 //            $(element.form).find("label[for=" + element.id + "]")
@@ -73,15 +83,54 @@ $().ready(function () {
     });
 });
 
-function submit(){
-    var validator = $("#reg_form").validate(); 
-    validator.form();     
-    if (validator.numberOfInvalids() === 0){
+function submit() {
+    var validator = $("#reg_form").validate();
+    validator.form();
+    if (validator.numberOfInvalids() === 0) {
         document.getElementById('reg_form').submit();
     }
 }
 
+function register() {
+    var username = $("#reg_username").val();
+    var password = $("#reg_password").val();
+    var email = $("#reg_email").val();
+    var nome = $("#reg_nome").val();
+    var cognome = $("#reg_cognome").val();
+    var ruolo = document.querySelector('input[name="reg_ruolo"]:checked').value;
+    var branca = $("#reg_branca").val();
+
+    var validator = $("#reg_form").validate();
+    validator.form();
+    if (validator.numberOfInvalids() !== 0) {
+        return;
+    }
+    $.post("functions/registration.php",
+            {
+                reg_username: username,
+                reg_password: password,
+                reg_email: email,
+                reg_nome: nome,
+                reg_cognome: cognome,
+                reg_ruolo: ruolo,
+                reg_branca: branca
+            },
+            function (data) {
+                if (data.result !== "success") {
+                    modal("Errore", "c'è stato un errore con la tua registrazione. Ci scusiamo per il disagio e la preghiamo di contattare la HS che accorrerà prontamente in suo aiuto");
+                } else {
+                    modal("Registrato", "La registrazione è avvenuta con successo: gioisci! Ora potrai usare le funzionalità di GEGU");
+                }
+            }, "json");
+
+}
+
 //inizializza i SELECT
-  $(document).ready(function() {
+$(document).ready(function () {
     $('select').material_select();
-  });
+});
+
+$(document).ready(function () {
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+});

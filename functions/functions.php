@@ -121,4 +121,17 @@ function printDefaultEndPage(){
 HTML;
     return $end;
 }
+
+function modal_message(){
+echo '<div id="modal" class="modal">
+    <div class="modal-content">
+      <h4 id="modal_title">Modal Header</h4>
+      <p id= "modal_text">A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    </div>
+  </div>';
+}
+  
 ?>

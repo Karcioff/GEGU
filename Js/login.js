@@ -45,15 +45,6 @@ $().ready(function () {
     });
 });
 
-function submit() {
-    var validator = $("#log_form").validate();
-    validator.form();
-    if (validator.numberOfInvalids() === 0) {
-        document.getElementById('log_form').submit();
-    }
-}
-
-
 function autenticate() {
     var username = $("#log_username").val();
     var password = $("#log_password").val();
@@ -67,7 +58,7 @@ function autenticate() {
                 log_username: username,
                 log_password: password
             },
-            function (data, status) {
+            function (data) {
                 var result = data;
                 if (result.username !== "ok") {
                     validator.showErrors({
