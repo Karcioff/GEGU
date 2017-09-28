@@ -7,8 +7,8 @@ $autore = filter_var($_POST['art_autore'],FILTER_SANITIZE_STRING);
 $data = filter_var($_POST['art_data'],FILTER_SANITIZE_STRING); 
 $branca = filter_var($_POST['art_branca'],FILTER_SANITIZE_STRING);
 
-$sql = "INSERT INTO articoli (ART_AUTORE, ART_TESTO, ART_DATA, ART_BRANCA) "
-        . "VALUES ('$autore','$testo','$data','$branca')";
+$sql = "INSERT INTO articoli (ART_AUTORE, ART_TITOLO, ART_TESTO, ART_DATA, ART_BRANCA) "
+        . "VALUES ('$autore','$titolo','$testo','$data','$branca')";
 
 if ($conn->query($sql) === TRUE) {
     header("location: /GEGU/index.php");
