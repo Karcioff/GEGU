@@ -7,6 +7,14 @@
  * per elemento: default e personalizzata
  */
 
+function is_logged() {
+    if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION['log_username']) && $_SESSION['log_username'] != "") {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
 function draw_art($tit, $art, $aut) {
     echo '<div class = "col s12 ">
                         <div class = "card white z-depth-3">
