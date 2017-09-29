@@ -26,7 +26,8 @@ function draw_art($tit, $art, $aut) {
 
 function draw_navbar($login) {
     if (!$login) {
-        echo "<div class='navbar-fixed'>    
+        echo " <header>
+            <div class='navbar-fixed'>    
             <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
             <div class='nav-wrapper container'><a id='logo-container' href='#' class='brand-logo side'>GE.GU</a>
@@ -34,7 +35,8 @@ function draw_navbar($login) {
                     <li><a href='#'>Navbar Link</a></li>
                 </ul>
             </div>          
-        </nav> 
+        </nav>
+        </header>
         </div>
         <ul id='slide-out' class='side-nav white'>
                 <li>
@@ -57,7 +59,8 @@ function draw_navbar($login) {
             </ul>
     ";
     } else {
-        echo "<nav class='blue darken-1 z-depth-1' role='navigation'>
+        echo "<header>
+            <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
             <div class='nav-wrapper container'><a id='logo-container' href='#' class='brand-logo side'>GE.GU " . $_SESSION['log_username'] . "</a>
                 <ul class='right hide-on-down'>
@@ -68,6 +71,7 @@ function draw_navbar($login) {
                 </ul>
                 <a href='functions/logout.php' data-activates='nav-mobile' class='button-collapse'><i class='large large material-icons'>exit</i></a>
             </div>
+            </header>
             <ul id='slide-out' class='side-nav white'>
                 <li>
                     <div class='user-view black-text blue darken-4'>

@@ -14,7 +14,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-        <meta name="theme-color" content="#eff7fc"/>
+        <meta name="theme-color" content="#0d47a1">
         <title>index</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,20 +25,20 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == TRUE && isset($_SESSION
         <?php
         draw_navbar($logged);
         ?>
-
-
-        <!--Inserimento articoli -->
-        <div class="container">
-            <?php
-            $result = $conn->query("SELECT * FROM articoli");
-            while ($row = $result->fetch_assoc()) {
-                $aut = $row["ART_AUTORE"];
-                $tit = $row["ART_TITOLO"];
-                $art = $row["ART_TESTO"];
-                draw_art($tit, $art, $aut);
-            }
-            ?>
-        </div>
+        <main>
+            <!--Inserimento articoli -->
+            <div class="container">
+                <?php
+                $result = $conn->query("SELECT * FROM articoli");
+                while ($row = $result->fetch_assoc()) {
+                    $aut = $row["ART_AUTORE"];
+                    $tit = $row["ART_TITOLO"];
+                    $art = $row["ART_TESTO"];
+                    draw_art($tit, $art, $aut);
+                }
+                ?>
+            </div>
+        </main>
         <?php
         modal_message();
         draw_footer();

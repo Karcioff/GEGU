@@ -1,7 +1,9 @@
 /* 
- * funzioni utili in varie pagine
+ * funzioni utili per pagina login
  */
+
 $().ready(function () {
+    $(".button-collapse").sideNav();
     $("#log_form").validate({
         rules: {
             log_username: {

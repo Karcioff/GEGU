@@ -17,6 +17,7 @@ function modal(title, text) {
 }
 
 $().ready(function () {
+    $(".button-collapse").sideNav();
     $("#reg_form").validate({
         rules: {
             reg_username: {
