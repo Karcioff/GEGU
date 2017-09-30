@@ -2,6 +2,7 @@
 
     <head>
         <?php
+        session_start();
         require_once './functions/functions.php';
         printDefaultMetadata("Inserisci articolo");
         ?>
@@ -19,7 +20,7 @@
             <div class="container signin"> <!--        da sistemare lo stile-->
                 <div class="card white z-depth-3">
                     <div class="card-content blue-text text-darken-4">
-                        <form id="art_form" name="art_form" method="post" enctype="" action="functions/art_insert.php">                  
+                        <form id="art_form" name="art_form" method="post" enctype="multipart/form-data" action="art_insert.php">                  
                             <span class="card-title blue-text text-darken-4">Inserisci l'articolo</span>
                             <p>Scrivi qui le informazioni che vuoi condividere con il resto del gruppo</p>
                             <hr>
@@ -44,7 +45,7 @@
                                     <div class="file-field input-field col s12 m10 s8">
                                         <div class="btn blue darken-4">
                                             <span>File</span>
-                                            <input type="file" multiple>
+                                            <input type="file" name="fileToUpload" id="fileToUpload" multiple>
                                         </div>
                                         <div class="file-path-wrapper">
                                             <input class="file-path validate" type="text" placeholder="Selezione file o immagini che vuoi inserire">

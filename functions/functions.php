@@ -19,7 +19,7 @@ function is_capo($logged) {
     if (!$logged) {
         return FALSE;
     }
-    if ($_POST["log_ruolo"] === "capo") {
+    if ($_SESSION["log_ruolo"] === "capo") {
         return TRUE;
     } else {
         return FALSE;
