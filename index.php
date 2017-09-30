@@ -4,6 +4,11 @@
 session_start();
 require_once 'functions/functions.php';
 $logged = is_logged();
+if (isset($_GET['branca']) && $_GET['branca'] != "") {
+    $branca = $_GET['branca'];
+}else{
+    $branca = "all";
+}
 ?>
 <html lang="it">
 
@@ -34,12 +39,23 @@ $logged = is_logged();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script src="Js/index.js"></script>
         <?php
+        //carico articoli
+        $is_capo_string = "";
+        if (is_capo($logged)) {
+            $is_capo_string = "true";
+        } else {
+            $is_capo_string = "false";
+        }
+        echo '<script>';
+        echo '$().ready( draw_art("' . $branca . '",' . $is_capo_string . '));';
+        echo '</script>';
+        //messaggio benvenuto
         if ($logged && isset($_SESSION["just_logged"]) && $_SESSION["just_logged"]) {
             echo '<script> $().ready(toast_welcome("' . $_SESSION['log_username'] . '"));               
              </script>';
             unset($_SESSION["just_logged"]);
         }
-
+        //messaggio articolo con successo
         if (isset($_SESSION['art_inserted']) && $_SESSION['art_inserted'] == true) {
             echo ' <script> $().ready(function () {              
                     Materialize.toast( "Articolo pubblicato con successo", 2000);                

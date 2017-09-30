@@ -15,6 +15,17 @@ function is_logged() {
     }
 }
 
+function is_capo($logged) {
+    if (!$logged) {
+        return FALSE;
+    }
+    if ($_POST["log_ruolo"] === "capo") {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
 function draw_art($tit, $art, $aut) {
     echo '<div class = "col s12 ">
                         <div class = "card white z-depth-3">
@@ -59,10 +70,10 @@ function draw_navbar($login) {
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment</i>Eventi</a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment_ind</i>Censiti</a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>euro_symbol</i>Finanza</a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>group</i>Co.Ca<span class='new badge' style='margin-left:15px;'>1</span></a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>child_care</i>L/C</a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
+                <li><a href='login.php' class='waves-effect'><i class='material-icons'>group</i>Co.Ca<span class='new badge' style='margin-left:15px;'>1</span></a></li>
+                <li><a href='index.php?branca=lc' class='waves-effect'><i class='material-icons'>child_care</i>L/C</a></li>
+                <li><a href='index.php?branca=eg' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
+                <li><a href='index.php?branca=rs' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
             </ul>
     ";
@@ -92,10 +103,10 @@ function draw_navbar($login) {
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment</i>Eventi</a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>assignment_ind</i>Censiti</a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>euro_symbol</i>Finanza</a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>group</i>Co.Ca<span class='new badge' style='margin-left:15px;'>1</span></a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>child_care</i>L/C</a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
-                <li><a href='#!' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
+                <li><a href='index.php?branca=coca' class='waves-effect'><i class='material-icons'>group</i>Co.Ca<span class='new badge' style='margin-left:15px;'>1</span></a></li>
+                <li><a href='index.php?branca=lc' class='waves-effect'><i class='material-icons'>child_care</i>L/C</a></li>
+                <li><a href='index.php?branca=eg' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
+                <li><a href='index.php?branca=rs' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
                 <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
             </ul>
@@ -173,7 +184,7 @@ function printDefaultMetadata($title) {
     echo '  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
             <meta name="theme-color" content="#0d47a1">
-            <title>'.$title.'</title>';
+            <title>' . $title . '</title>';
 }
 
 function printMetadata($title, $meta) {
