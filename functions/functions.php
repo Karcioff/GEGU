@@ -38,7 +38,7 @@ function draw_navbar($login) {
             <div class='navbar-fixed'>    
             <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
-            <div class='nav-wrapper container'><a id='logo-container' href='#' class='brand-logo side'>GE.GU</a>
+            <div class='nav-wrapper container'><a id='logo-container' href='index.php' class='brand-logo side'>GE.GU</a>
                 <ul id='nav-mobile' class='side-nav'>
                     <li><a href='#'>Navbar Link</a></li>
                 </ul>
@@ -70,7 +70,7 @@ function draw_navbar($login) {
         echo "<header>
             <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
-            <div class='nav-wrapper container'><a id='logo-container' href='#' class='brand-logo side'>GE.GU " . $_SESSION['log_username'] . "</a>
+            <div class='nav-wrapper container'><a id='logo-container' href='index.php' class='brand-logo side'>GE.GU " . $_SESSION['log_username'] . "</a>
                 <ul class='right hide-on-down'>
                     <li><a href='functions/logout.php'>Esci</a></li>
                 </ul>
@@ -170,12 +170,10 @@ HTML;
 }
 
 function printDefaultMetadata($title) {
-    $metadata = <<<HTML
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    echo '  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-            <title>$title</title>
-HTML;
-    return $metadata;
+            <meta name="theme-color" content="#0d47a1">
+            <title>'.$title.'</title>';
 }
 
 function printMetadata($title, $meta) {

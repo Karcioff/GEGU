@@ -15,7 +15,7 @@ $().ready(function () {
 });
 
 
-function toast_welcome(logged, username) {
+function toast_welcome(username) {
     var message = "Buongiorno " + username;
     Materialize.toast(message, 4000);
 }
