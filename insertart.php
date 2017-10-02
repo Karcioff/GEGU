@@ -45,10 +45,10 @@
                                     <div class="file-field input-field col s12 m10 s8">
                                         <div class="btn blue darken-4">
                                             <span>File</span>
-                                            <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+                                            <input type="file" name="files[]" id="files" multiple>
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text" placeholder="Selezione file o immagini che vuoi inserire">
+                                            <input class="file-path validate" type="text" placeholder="Seleziona le immagini che vuoi inserire">
                                         </div>
                                     </div> 
 
@@ -92,27 +92,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script>
-                        $(document).ready(function () {
-                            $('select').material_select();
-                            $('.datepicker').pickadate({
-                                selectMonths: true, // Creates a dropdown to control month
-                                selectYears: 15, // Creates a dropdown of 15 years to control year,
-                                monthsFull: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-                                monthsShort: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Sett', 'Ott', 'Nov', 'Dic'],
-                                weekdaysFull: ['Domenica', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', ],
-                                weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
-                                weekdaysLetter: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
-                                today: 'Oggi',
-                                clear: 'Cancella',
-                                close: 'Ok',
-                                closeOnSelect: false, // Close upon selecting a date,
-                                format: 'dd-mm-yyyy',
-                            });
-                            var $input = $('.datepicker').pickadate();
-                            var picker = $input.pickadate('picker');
-                            picker.set('select', new Date());
-                        });
-        </script>
+        <script src="Js/insertart.js"></script>
     </body>
 </html>

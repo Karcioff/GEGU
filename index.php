@@ -56,9 +56,9 @@ if (isset($_GET['branca']) && $_GET['branca'] != "") {
             unset($_SESSION["just_logged"]);
         }
         //messaggio articolo con successo
-        if (isset($_SESSION['art_inserted']) && $_SESSION['art_inserted'] == true) {
+        if (isset($_SESSION['art_inserted'])) {
             echo ' <script> $().ready(function () {              
-                    Materialize.toast( "Articolo pubblicato con successo", 2000);                
+                    Materialize.toast( "'.$_SESSION['art_inserted'].'", 8000);                
                     }); </script>';
             unset($_SESSION['art_inserted']);
         }

@@ -54,9 +54,9 @@ function draw_navbar($login) {
                     <li><a href='#'>Navbar Link</a></li>
                 </ul>
             </div>          
-        </nav>
-        </header>
+        </nav> 
         </div>
+        </header>       
         <ul id='slide-out' class='side-nav white'>
                 <li>
                     <div class='user-view black-text blue darken-4'>
@@ -79,6 +79,7 @@ function draw_navbar($login) {
     ";
     } else {
         echo "<header>
+            <div class='navbar-fixed'> 
             <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
             <div class='nav-wrapper container'><a id='logo-container' href='index.php' class='brand-logo side'>GE.GU " . $_SESSION['log_username'] . "</a>
@@ -89,6 +90,8 @@ function draw_navbar($login) {
                     <li><a href='#'>Navbar Link</a></li>
                 </ul>
                 <a href='functions/logout.php' data-activates='nav-mobile' class='button-collapse'><i class='large large material-icons'>exit</i></a>
+            </div>
+            </nav>
             </div>
             </header>
             <ul id='slide-out' class='side-nav white'>
@@ -110,7 +113,7 @@ function draw_navbar($login) {
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
                 <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
             </ul>
-        </nav>";
+        ";
     }
 }
 
