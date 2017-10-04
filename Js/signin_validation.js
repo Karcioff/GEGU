@@ -13,7 +13,7 @@ function modal(title, text) {
             window.location = "index.php";
         }
     });
-    $('#modal').modal('open');
+    $('#modal_message').modal('open');
 }
 
 $().ready(function () {

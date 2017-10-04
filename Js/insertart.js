@@ -2,6 +2,98 @@
  * JS della pagina inserimanto articoli
  */
 
+//contiene se ci sono gli url delle foto salvate
+var foto_urls = [];
+
+
+//funzione per aprire l'anteprima dell'articolo da pubblicare
+function open_ant(title, text, author, date, branca) {
+    document.getElementById('ant_title').textContent = title;
+    document.getElementById('ant_text').textContent = text;
+    document.getElementById('ant_author').textContent = "Autore: " + author;
+    document.getElementById('ant_date').textContent = date;
+    document.getElementById('ant_branca').textContent = "pubblicato in branca: " + branca;
+    //document.getElementById('ant_immagini').textContent = "Upload delle seguenti immagini: " + images;
+    $('#ant_modal').modal('open');
+}
+
+
+//salva i dati dell'articolo nel database e rimanda all'index
+function save_art() {
+    var titolo = $('#art_titolo').val();
+    var testo = $('#art_testo').val();
+    var autore = $('#art_autore').val();
+    var data = $('#art_data').val();
+    var branca = $('#art_branca').val();
+    var url;
+
+    if (foto_urls.length === 0) {
+        url = "";
+    } else {
+        url = foto_urls.join(",5,5,");
+    }
+
+    $.post("functions/art_insert.php", {
+        art_titolo: titolo,
+        art_testo: testo,
+        art_autore: autore,
+        art_data: data,
+        art_branca: branca,
+        art_foto: url
+    },
+            function (data, status) {
+                if (status === "success") {
+                    window.location = "index.php";
+                } else {
+                    console.log(data);
+                    document.getElementById("modal_title").textContent = "Errore";
+                    document.getElementById("modal_text").textContent = "Si è verificato un errore nel caricare l'articolo:" + data + "     Ci scusiamo per il disagio.";
+                    $('#modal_message').modal('open');
+                }
+            }
+    , "text");
+}
+
+
+//funzione da chiamare nella pagina per eventuale upload e salvataggio database
+function submit() {
+    if (uploader.getUploads({status: qq.status.SUBMITTED}).length !== 0) {
+        uploader.uploadStoredFiles();
+    } else {
+        save_art();
+    }
+}
+
+//variabile che gestisce l'elemento upload
+var uploader = new qq.FineUploader({
+    element: document.getElementById('my-uploader'),
+    request: {
+        endpoint: "upload/upload_images.php"
+    },
+    validation: {
+        allowedExtensions: ["jpeg", "jpg", "gif", "png"],
+        sizeLimit: 1000000 * 8, // 8 MiB,                                    
+        itemLimit: 10
+    },
+    form: {
+        element: "art_form",
+        autoUpload: false,
+        interceptSubmit: false
+    },
+    callbacks: {
+        onComplete: function (id, name, response, ff) {
+            var url = "upload/files/" + response.uuid + "/" + response.uploadName;
+            foto_urls.push(url);
+        },
+        onAllComplete: function () {
+            save_art();
+            foto_urls = [];
+        }
+    }
+});
+
+
+//operazioni da fare quando il documento è pronto
 $(document).ready(function () {
     $('select').material_select();
     $('.datepicker').pickadate({
@@ -18,9 +110,14 @@ $(document).ready(function () {
         closeOnSelect: false, // Close upon selecting a date,
         format: 'dd-mm-yyyy'
     });
-    
+
     var $input = $('.datepicker').pickadate();
     var picker = $input.pickadate('picker');
     picker.set('select', new Date());
-   
+
+    $('.modal').modal();
+    $(".button-collapse").sideNav();
+
 });
+
+

@@ -31,7 +31,7 @@ if (isset($_GET['branca']) && $_GET['branca'] != "") {
             </div>
         </main>
         <?php
-        modal_message();
+        draw_modal_message();
         draw_footer();
         ?>
 
@@ -60,6 +60,7 @@ if (isset($_GET['branca']) && $_GET['branca'] != "") {
             echo ' <script> $().ready(function () {              
                     Materialize.toast( "'.$_SESSION['art_inserted'].'", 8000);                
                     }); </script>';
+            echo $_SESSION['art_inserted'];
             unset($_SESSION['art_inserted']);
         }
         ?>

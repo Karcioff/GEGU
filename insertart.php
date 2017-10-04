@@ -8,8 +8,10 @@
         ?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link rel="stylesheet" href="css/GEGU.css">
+        <link rel="stylesheet" href="css/fine-uploader-new.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
     </head>
 
     <body>
@@ -17,10 +19,10 @@
         draw_navbar(true);
         ?>
         <main>
-            <div class="container signin"> <!--        da sistemare lo stile-->
+            <div class="container signin"> 
                 <div class="card white z-depth-3">
                     <div class="card-content blue-text text-darken-4">
-                        <form id="art_form" name="art_form" method="post" enctype="multipart/form-data" action="art_insert.php">                  
+                        <form id="art_form" name="art_form" method="post" enctype="multipart/form-data">                  
                             <span class="card-title blue-text text-darken-4">Inserisci l'articolo</span>
                             <p>Scrivi qui le informazioni che vuoi condividere con il resto del gruppo</p>
                             <hr>
@@ -42,15 +44,9 @@
                                     </div>
 
                                     <!--inserimento file-->
-                                    <div class="file-field input-field col s12 m10 s8">
-                                        <div class="btn blue darken-4">
-                                            <span>File</span>
-                                            <input type="file" name="files[]" id="files" multiple>
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text" placeholder="Seleziona le immagini che vuoi inserire">
-                                        </div>
-                                    </div> 
+                                    <div class="small container">
+                                    <div id="my-uploader"></div>
+                                    </div>                               
 
                                     <!-- autore e data-->
                                     <div class="row">
@@ -65,10 +61,10 @@
                                         </div>
                                     </div>
                                     <!--pubblicazione-->
+                                    <p>Seleziona dove pubblicare l'articolo:</p>
                                     <div class="input-field col s12 m6 l5">
-                                        <select name="art_branca">
-                                            <option value="" disabled selected>Seleziona dove pubblicare l'articolo</option>
-                                            <option value="all">Homepage</option>
+                                        <select id="art_branca" name="art_branca">                                            
+                                            <option value="all" selected>Homepage</option>
                                             <option value="lc">Lupetti L/C</option>
                                             <option value="eg">Reparto E/G</option>
                                             <option value="rs">Noviziato e Clan R/S</option>
@@ -76,11 +72,29 @@
                                         </select>
                                     </div>
                                 </div>
+                            </div>                         
+
+                            <!-- ANTEPRIMA ARTICOLO -->
+                            <div id="ant_modal" class="modal">
+                                <div class="modal-content">
+                                    <span class = "card-title blue-text text-darken-4" id="ant_title"><b>titolo</b></span>
+                                    <p id="ant_text">testo articolo</p>
+                                    <br>
+                                    <p id="ant_author">Autore : </p>
+                                    <p id="ant_date">Data</p>
+                                    <p id="ant_branca">Branca</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#" onclick="submit();" class="modal-action modal-close waves-effect waves-green btn-flat">Conferma</a>
+                                </div>
                             </div>
-                        </form>  
+
+
+                        </form>
+                        <div id="fine-uploader-validation"></div>
                     </div>
                     <div class="card-action blue darken-4">
-                        <a href="#" onclick="document.getElementById('art_form').submit();" class="white-text">Conferma</a>
+                        <a href="#" onclick="open_ant($('#art_titolo').val(), $('#art_testo').val(), $('#art_autore').val(), $('#art_data').val(), $('#art_branca').val());" class="white-text">Conferma</a>
                         <a href="#" class="white-text">Annulla</a>
                     </div>
                 </div>
@@ -88,10 +102,13 @@
         </main>
         <?php
         draw_footer();
+        draw_modal_message();
+        draw_uploader();
         ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="Js/fine-uploader.min.js"></script>
         <script src="Js/insertart.js"></script>
     </body>
 </html>
