@@ -26,21 +26,80 @@ function is_capo($logged) {
     }
 }
 
-function draw_art($tit, $art, $aut) {
-    echo '<div class = "col s12 ">
+//oggetto per gestire articoli
+class Articolo {
+
+    public $titolo;
+    public $testo;
+    public $autore;
+    public $data;
+    public $foto;
+
+    public function __construct($titolo, $testo, $autore, $data, $foto) {
+        $this->titolo = $titolo;
+        $this->testo = $testo;
+        $this->data = $data;
+        $this->autore = $autore;
+        $this->foto = $foto;
+    }
+
+//    public function display_images() {
+//        if (count($this->foto) == 0) {
+//            return "";
+//        }
+//        $result = '<div class="slider">
+//                    <ul class="slides">';
+//        foreach ($this->foto as $foto_url) {
+//            $item = '<li>
+//        <img src="' . $foto_url . '">
+//      </li>';
+//            $result = $result . $item;
+//        }
+//        $result = $result . '</ul></div>';
+//        return $result;
+//    }
+    
+        public function display_images() {
+        if (count($this->foto) == 0) {
+            return "";
+        }
+        $result = '<div class="carousel carousel-slider">';
+        foreach ($this->foto as $foto_url) {
+            $item = ' <a class="carousel-item " href="#one!"><img src="'.$foto_url.'"></a>';
+            $result = $result . $item;
+        }
+        $result = $result . '</div>';
+        return $result;
+    }
+
+    public function draw_art() {
+        echo '<div class = "col s12 ">
                         <div class = "card white z-depth-3">
                             <div class = "card-content black-text">
-                                <span class = "card-title blue-text text-darken-4"><b>' . $tit . '</b></span>
-                                <p>' . $art . '</p>
+                                <span class = "card-title blue-text text-darken-4"><b>' . $this->titolo . '</b></span>
+                                <p>' . $this->testo . '</p>
                                 <br>
-                                <small>Autore :' . $aut . '</small>
-                            </div>
-                            <div class = "card-action blue lighten-5 right-align">
+                                <small>Autore :' . $this->autore . '</small>
+                            </div>' .
+        $this->display_images() .
+        '<div class = "card-action blue lighten-5 right-align">
                                 <a href = "#" class = "blue-text text-darken-4">Accetta</a>
                                 <a href = "#" class = "blue-text text-darken-4">Rifiuta</a>
                             </div>
                         </div>
                 </div >';
+    }
+
+}
+
+//per comparare date
+function art_date_sort($a, $b) {
+    $ad = $a->data;
+    $bd = $b->data;
+    if ($ad == $bd) {
+        return 0;
+    }
+    return $ad < $bd ? -1 : 1;
 }
 
 function draw_navbar($login) {
@@ -309,5 +368,4 @@ function draw_uploader() {
             </dialog>
             </div>
         </script>';
-    
 }
