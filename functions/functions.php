@@ -65,7 +65,7 @@ class Articolo {
         }
         $result = '<div class="carousel carousel-slider">';
         foreach ($this->foto as $foto_url) {
-            $item = ' <a class="carousel-item " href="#one!"><img src="'.$foto_url.'"></a>';
+            $item = ' <a class="carousel-item" href="#one!"><img class="responsive-img" src="'.$foto_url.'"></a>';
             $result = $result . $item;
         }
         $result = $result . '</div>';

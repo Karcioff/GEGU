@@ -59,8 +59,7 @@ if (isset($_GET['branca']) && $_GET['branca'] != "") {
         if (isset($_SESSION['art_inserted'])) {
             echo ' <script> $().ready(function () {              
                     Materialize.toast( "'.$_SESSION['art_inserted'].'", 8000);                
-                    }); </script>';
-            echo $_SESSION['art_inserted'];
+                    }); </script>';            
             unset($_SESSION['art_inserted']);
         }
         ?>

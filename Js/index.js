@@ -7,6 +7,10 @@ function draw_art(branca, is_capo) {
         is_capo: is_capo
     }, function (data) {
         $("#art_container").html(data);
+        $('.carousel').carousel({
+        indicators: true,
+        fullWidth: true
+    });
     });
 }
 
@@ -14,14 +18,7 @@ $().ready(function () {
     //setting up sidenav
     $(".button-collapse").sideNav();
 
-
-    $('.materialboxed').materialbox();
     $('.slider').slider();
-    $('.carousel').carousel({
-        indicators: true,
-        fullWidth: true
-    });
-
 });
 
 

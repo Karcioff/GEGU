@@ -51,7 +51,7 @@
                                     <!-- autore e data-->
                                     <div class="row">
                                         <div class="input-field col s12 m6 l6">                                                
-                                            <input id="art_autore" name="art_autore" type="text">
+                                            <input id="art_autore" name="art_autore" type="text" value="<?php echo $_SESSION['log_nome']. " ". $_SESSION['log_cognome']?>">
                                             <label for="art_autore">Autore articolo</label>
                                         </div>                           
 
