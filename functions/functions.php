@@ -102,7 +102,7 @@ function art_date_sort($a, $b) {
     return $ad < $bd ? -1 : 1;
 }
 
-function draw_navbar($login) {
+function draw_navbar($login,$admin=false) {
     if (!$login) {
         echo " <header>
             <div class='navbar-fixed'>    
@@ -170,9 +170,16 @@ function draw_navbar($login) {
                 <li><a href='index.php?branca=eg' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
                 <li><a href='index.php?branca=rs' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
-                <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
-            </ul>
         ";
+        if (!$admin) echo '</ul>';
+        else {
+            echo "
+                <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
+                <li><a href='gest_articoli.php' class='waves-effect'><i class='material-icons'>chat</i>Gestisci articoli</a></li>
+                <li><a href='gest_users.php' class='waves-effect'><i class='material-icons'>face</i>Gestisci utenti</a></li>
+                </ul>
+            ";
+        }
     }
 }
 
