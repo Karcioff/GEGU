@@ -2,8 +2,9 @@
  * JS della pagina inserimanto articoli
  */
 
-//contiene se ci sono gli url delle foto salvate
+//contiene se ci sono gli url delle foto o di documenti salvati
 var foto_urls = [];
+var docs_urls = [];
 
 
 //funzione per aprire l'anteprima dell'articolo da pubblicare
@@ -25,13 +26,20 @@ function save_art() {
     var autore = $('#art_autore').val();
     var data = $('#art_data').val();
     var branca = $('#art_branca').val();
-    var url;
+    var url_foto;
+    var url_docs;
 
     if (foto_urls.length === 0) {
-        url = "";
+        url_foto = "";
     } else {
-        url = foto_urls.join(",5,5,");
+        url_foto = foto_urls.join(",5,5,");
     }
+    if (docs_urls.length === 0) {
+        url_docs = "";
+    } else {
+        url_docs = docs_urls.join(",5,5,");
+    }
+
 
     $.post("functions/art_insert.php", {
         art_titolo: titolo,
@@ -39,7 +47,8 @@ function save_art() {
         art_autore: autore,
         art_data: data,
         art_branca: branca,
-        art_foto: url
+        art_foto: url_foto,
+        art_docs: url_docs
     },
             function (data, status) {
                 if (status === "success") {
@@ -71,7 +80,7 @@ var uploader = new qq.FineUploader({
         endpoint: "upload/upload_images.php"
     },
     validation: {
-        allowedExtensions: ["jpeg", "jpg", "gif", "png"],
+        allowedExtensions: ["jpeg", "jpg", "gif", "png", "pdf", "docx", "doc", "xlsx", "xls", "ppt", "pptx"],
         sizeLimit: 1000000 * 8, // 8 MiB,                                    
         itemLimit: 10
     },
@@ -82,12 +91,19 @@ var uploader = new qq.FineUploader({
     },
     callbacks: {
         onComplete: function (id, name, response, ff) {
-            var url = "upload/files/" + response.uuid + "/" + response.uploadName;
-            foto_urls.push(url);
+            var name = response.uploadName.toLowerCase();
+            if (name.includes("jpeg") || name.includes("jpg") || name.includes("gif") || name.includes("png")) {
+                var url_fotos = "upload/files/" + response.uuid + "/" + name;
+            } else {
+                var url_docs = "upload/files/" + response.uuid + "/" + response.uploadName;
+            }
+            docs_urls.push(url_docs);
+            foto_urls.push(url_fotos);
         },
         onAllComplete: function () {
             save_art();
             foto_urls = [];
+            docs_urls = [];
         }
     }
 });
