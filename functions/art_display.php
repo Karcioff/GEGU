@@ -24,6 +24,7 @@ function art_find($branca, $is_capo) {
             $aut = $row["ART_AUTORE"];
             $tit = $row["ART_TITOLO"];
             $test = $row["ART_TESTO"];
+            $id = $row["ART_ID"];
             $data = date_create_from_format("d-m-Y", $row["ART_DATA"]);
             if ($row["ART_FOTO"] === "") {
                 $foto = array();
@@ -35,7 +36,7 @@ function art_find($branca, $is_capo) {
             } else {
                 $docs = explode(",5,5,", $row["ART_ALLEGATO"]);
             }
-            $art = new Articolo($tit, $test, $aut, $data,$docs, $foto);
+            $art = new Articolo($tit, $test, $aut, $data,$docs, $foto, $id);
             array_push($articoli, $art);
         }
     }

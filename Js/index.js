@@ -27,8 +27,8 @@ function toast_welcome(username) {
     Materialize.toast(message, 4000);
 }
 
-function show_allegati(){
-        var x = document.getElementById("docs_div");
+function show_allegati(id){
+        var x = document.getElementById(id);
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {

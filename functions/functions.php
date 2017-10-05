@@ -35,14 +35,16 @@ class Articolo {
     public $data;
     public $foto;
     public $docs;
+    public $id;
 
-    public function __construct($titolo, $testo, $autore, $data, $docs, $foto) {
+    public function __construct($titolo, $testo, $autore, $data, $docs, $foto, $id) {
         $this->titolo = $titolo;
         $this->testo = $testo;
         $this->data = $data;
         $this->autore = $autore;
         $this->docs = $docs;
         $this->foto = $foto;
+        $this->id = $id;
     }
 
     public function display_images() {
@@ -51,7 +53,7 @@ class Articolo {
         }
         $result = '<div class="carousel carousel-slider">';
         foreach ($this->foto as $foto_url) {
-            $item = ' <a class="carousel-item" href="#one!"><img class="responsive-img" src="' . $foto_url . '"></a>';
+            $item = ' <a class="carousel-item" href="'. $foto_url .'"><img class="responsive-img" src="' . $foto_url . '"></a>';
             $result = $result . $item;
         }
         $result = $result . '</div>';
@@ -63,8 +65,8 @@ class Articolo {
             return "";
         }
         $result = '<div class="row"> <div class="col s12"> <br>'
-                . '<a class="waves-effect waves-light btn blue" onclick="show_allegati()"><i class="material-icons left">attachment</i>Allegati</a>'
-                . '<div style="display:none" id= "docs_div" >';
+                . '<a class="waves-effect waves-light btn blue" onclick="show_allegati('.$this->id .')"><i class="material-icons left">attachment</i>Allegati</a>'
+                . '<div style="display:none" id= "'.$this->id .'" >';
         foreach ($this->docs as $doc) {
             $item = '<a href="' . $doc . '">' . $doc . '</a>';
             $result = $result . $item;
@@ -137,7 +139,7 @@ function draw_navbar($login, $admin = false) {
             <div class='navbar-fixed'> 
             <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
-            <div class='nav-wrapper container'><a id='logo-container' href='index.php' class='brand-logo side'>GE.GU " . $_SESSION['log_username'] . "</a>
+            <div class='nav-wrapper container'><a id='logo-container' href='index.php' class='brand-logo side'>GE.GU</a>
                 <ul class='right hide-on-down'>
                     <li><a href='functions/logout.php'>Esci</a></li>
                 </ul>               
@@ -162,12 +164,12 @@ function draw_navbar($login, $admin = false) {
                 <li><a href='index.php?branca=eg' class='waves-effect'><i class='material-icons'>explore</i>E/G</a></li>
                 <li><a href='index.php?branca=rs' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
+                <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
         ";
         if (!$admin)
             echo '</ul>';
         else {
             echo "
-                <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
                 <li><a href='gest_articoli.php' class='waves-effect'><i class='material-icons'>forum</i>Gestisci articoli</a></li>
                 <li><a href='gest_users.php' class='waves-effect'><i class='material-icons'>face</i>Gestisci utenti</a></li>
                 </ul>

@@ -93,12 +93,12 @@ var uploader = new qq.FineUploader({
         onComplete: function (id, name, response, ff) {
             var name = response.uploadName.toLowerCase();
             if (name.includes("jpeg") || name.includes("jpg") || name.includes("gif") || name.includes("png")) {
-                var url_fotos = "upload/files/" + response.uuid + "/" + name;
+                var url_fotos = "upload/files/" + response.uuid + "/" + response.uploadName;
+                foto_urls.push(url_fotos);
             } else {
                 var url_docs = "upload/files/" + response.uuid + "/" + response.uploadName;
+                docs_urls.push(url_docs);
             }
-            docs_urls.push(url_docs);
-            foto_urls.push(url_fotos);
         },
         onAllComplete: function () {
             save_art();
