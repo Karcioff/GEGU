@@ -193,6 +193,38 @@ div.error {
 .picker__day.picker__day--infocus.picker__day--today.picker__day--selected{
     color: white
 }
+.padding10 {
+    padding-right: 10px;
+}
+[type="checkbox"]:not(:checked)+label:before, [type="checkbox"]:not(:checked)+label:after {
+    border: 2px solid #0d47a1
+}
+
+[type="checkbox"]:checked+label:after, [type="checkbox"].with-gap:checked+label:before, [type="checkbox"].with-gap:checked+label:after {
+    border: 2px solid #0d47a1
+}
+
+[type="checkbox"]:checked+label:after, [type="checkbox"].with-gap:checked+label:after {
+    background-color: #0d47a1
+}
+
+[type="checkbox"].with-gap:disabled:checked+label:before {
+    border: 2px solid rgba(0, 0, 0, 0.42)
+}
+
+[type="checkbox"].with-gap:disabled:checked+label:after {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.42)
+}
+
+[type="checkbox"]:disabled:not(:checked)+label:before, [type="checkbox"]:disabled:checked+label:before {
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.42)
+}
+
+[type="checkbox"]:disabled+label {
+    color: rgba(0, 0, 0, 0.42)
+}
 
 .slider .indicators .indicator-item {
   background-color: #666666;
@@ -209,3 +241,33 @@ div.error {
   z-index: 100;
   /* text-align: left; */
 }
+[type="checkbox"]:disabled:not(:checked)+label:before {
+    border-color: rgba(0, 0, 0, 0.42)
+}
+
+[type="checkbox"]:disabled:checked+label:after {
+    background-color: rgba(0, 0, 0, 0.42);
+    border-color: white
+}
+.blue_check:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #0d47a1; /* You need to change the colour here */
+  border-bottom: 2px solid #0d47a1; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+.gegu-circle{border-radius:50%}

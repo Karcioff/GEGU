@@ -369,3 +369,102 @@ function draw_uploader() {
             </div>
         </script>';
 }
+function getListUsers() {
+    include_once './connection/connect.php';
+    $lu = "";
+    $result = $conn->query("SELECT * FROM login");
+    while ($row = $result->fetch_assoc()) {
+        $check = array('', '', '', '','', '', '', '');
+        $us_cod = $row['LOG_ID'];
+        $nome = $row['LOG_NOME'];
+        $cognome = $row['LOG_COGNOME'];
+        $email = $row['LOG_EMAIL'];
+        $username = $row['LOG_USERNAME'];
+        if (strpos($row['LOG_BRANCA'], "coca")!==false) $check[0] = 'checked';
+        if (strpos($row['LOG_BRANCA'], "lc")!==false) $check[1] = 'checked';
+        if (strpos($row['LOG_BRANCA'], "eg")!==false) $check[2] = 'checked';
+        if (strpos($row['LOG_BRANCA'], "rs")!==false) $check[3] = 'checked';
+        
+        if (strpos($row['LOG_RUOLO'], "admin")!==false) $check[4] = 'checked';
+        if (strpos($row['LOG_RUOLO'], "capo")!==false) $check[5] = 'checked';
+        if (strpos($row['LOG_RUOLO'], "redattore")!==false) $check[6] = 'checked';
+        if (strpos($row['LOG_RUOLO'], "cassiere")!==false) $check[7] = 'checked';
+        $lu .= "
+    <li id =\"li_$us_cod\">
+        <div class=\"collapsible-header\" ><i class=\"material-icons\">face</i>$nome $cognome</div>
+            <div class=\"collapsible-body grey lighten-5\">
+                <form action=\"#\">
+                    <div class=\"row\">
+                        <div class=\"input-field col s12 m6 l6\">
+                            <input id=\"username_$us_cod\" name=\"username\" type=\"text\" value=\"$username\">
+                            <label class=\"padding10\" for=\"username\">Username</label>
+                        </div>
+                        <div class=\"input-field col s12 m6 l6\">
+                            <input name=\"email_$us_cod\" id=\"email_$us_cod\" type=\"text\" value=\"$email\">
+                            <label class=\"padding10\" for=\"email\">E-mail</label>
+                        </div>
+                    </div>
+                    <div class=\"row\">
+                        <div class=\"col s12 m6 l6\" id=\"permessi\">
+                        <p>
+                        Permessi:<br>
+                        <input type=\"checkbox\" name =\"admin\" class=\"blue_check\" id=\"admin_$us_cod\"" . $check[4] . " />
+                        <label class=\"padding10\" for=\"admin_$us_cod\">Admin</label>
+                        <input type=\"checkbox\" name =\"admin\" class=\"blue_check\" id=\"capo_$us_cod\"" . $check[5] . "/>
+                        <label class=\"padding10\" for=\"capo_$us_cod\">Capo</label>
+                        <input type=\"checkbox\" name =\"admin\" class=\"blue_check\" id=\"redattore_$us_cod\"" . $check[6] . " />
+                        <label class=\"padding10\" for=\"redattore_$us_cod\">Redattore</label>
+                        <input type=\"checkbox\" name =\"admin\" class=\"blue_check\" id=\"cassiere_$us_cod\"" . $check[7] . " />
+                        <label class=\"padding10\" for=\"cassiere_$us_cod\">Cassiere</label>
+                        </p>
+                    </div>
+                    <div class=\"col s12 m6 l6\" id=\"ruolo\">
+                        <p>
+                        Ruolo:<br>
+                        <input type=\"checkbox\" id =\"coca_$us_cod\" name =\"branca\" class=\"blue_check\" id=\"coca_$us_cod\"" . $check[0] . " />
+                        <label class=\"padding10\"  for=\"coca_$us_cod\">Capo gruppo</label>
+                        <input type=\"checkbox\" id =\"lc_$us_cod\"  name =\"branca\" class=\"blue_check\" id=\"lc_$us_cod\"" . $check[1] . " />
+                        <label class=\"padding10\" for=\"lc_$us_cod\">L/C</label>
+                        <input type=\"checkbox\" id = \"eg_$us_cod\" name =\"branca\" class=\"blue_check\" id=\"eg_$us_cod\"" . $check[2] . " />
+                        <label class=\"padding10\" for=\"eg_$us_cod\">E/G</label>
+                        <input type=\"checkbox\" id = \"rs_$us_cod\" name =\"branca\" class=\"blue_check\" id=\"rs_$us_cod\"" . $check[3] . " />
+                        <label class=\"padding10\" for=\"rs_$us_cod\">R/S</label>
+                        </p>
+                    </div>
+                    </div>
+                    <a class=\"waves-effect waves-light btn blue\" onclick=\"edit($us_cod)\"><i class=\"material-icons left\">mode_edit</i>Modifica</a>
+                    <a class=\"waves-effect waves-light btn red modal-trigger\" data-target=\"modal_$us_cod\" ><i class=\"material-icons left\">delete</i>Elimina</a>
+                </form>
+            </div>
+        </li>
+        <!--Modal conferma elimina <div id=\"modal_$us_cod\" class=\"modal\" style> -->
+            <div id=\"modal_$us_cod\" class=\"modal bottom-sheet\" style>
+            <div class=\"modal-content text-red\">
+                <h5>Confermi elimina di $username?</h5>
+            </div>
+            <div class=\"modal-footer\">
+                <a href=\"#!\" class=\"modal-action modal-close waves-effect waves-blue btn-flat \" onclick=\"del($us_cod)\">Conferma</a>
+            </div>
+        </div>
+";
+    }
+    return $lu;
+}
+
+function draw_btn_new($link) {
+    echo "
+    <div class=\"fixed-action-btn\" style=\"bottom: 45px; right: 24px;\">
+          <a class=\"btn-floating btn-large waves-effect waves-light blue darken-4\" href=\"$link\"><i class=\"material-icons\">add</i></a>
+    </div>";
+}
+function printDenied(){
+    return <<<HTML
+                        <div class="row">
+                            <img src="images/capibara.jpg" class="gegu-circle" style="width:100%;">
+                                <div class="caption center-align">
+                                     <h3>Questo capibara asserisce che non sei admin!</h3>
+                                     <h5 class="light">E ti chiede di cambiare pagina.</h5>
+                                </div>
+                        </div>
+HTML;
+}
