@@ -109,9 +109,7 @@ function draw_navbar($login,$admin=false) {
             <nav class='blue darken-1 z-depth-1' role='navigation'>
             <a href='#' data-activates='slide-out' class='button-collapse show-on-large'><i class='material-icons'>menu</i></a>
             <div class='nav-wrapper container'><a id='logo-container' href='index.php' class='brand-logo side'>GE.GU</a>
-                <ul id='nav-mobile' class='side-nav'>
-                    <li><a href='#'>Navbar Link</a></li>
-                </ul>
+    
             </div>          
         </nav> 
         </div>
@@ -144,11 +142,7 @@ function draw_navbar($login,$admin=false) {
             <div class='nav-wrapper container'><a id='logo-container' href='index.php' class='brand-logo side'>GE.GU " . $_SESSION['log_username'] . "</a>
                 <ul class='right hide-on-down'>
                     <li><a href='functions/logout.php'>Esci</a></li>
-                </ul>
-                <ul id='nav-mobile' class='side-nav'>
-                    <li><a href='#'>Navbar Link</a></li>
-                </ul>
-                <a href='functions/logout.php' data-activates='nav-mobile' class='button-collapse'><i class='large large material-icons'>exit</i></a>
+                </ul>               
             </div>
             </nav>
             </div>
@@ -231,23 +225,6 @@ HTML;
     return $login;
 }
 
-function printNews($title, $body) {
-    $news = <<<HTML
-            <div class="col s12 m12">
-                <div class="card white z-depth-1">
-                    <div class="card-content blue-text">
-                        <span class="card-title black-text"><b>$title</b></span>
-                        $body
-                    </div>
-                    <div class="card-action grey lighten-5">
-                        <a href="#" class="blue-text">Accetta</a>
-                        <a href="#" class="blue-text">Rifiuta</a>
-                    </div>
-                </div>
-            </div>
-HTML;
-    return $news;
-}
 
 function printDefaultMetadata($title) {
     echo '  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
