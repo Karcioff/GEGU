@@ -19,21 +19,25 @@ $logged = is_logged();
     </head>
     <body>
         <?php
-        draw_navbar_gest($logged);
+        if (isset($_SESSION["admin"]))
+            draw_navbar($logged, $_SESSION["admin"]);
+        else
+            draw_navbar($logged);
         ?>
         <main>
             <!--Inserimento articoli -->
             <div class="container">
                 <?php
                 if ($logged) {
-                    $res = '';
-                    $result = $conn->query("SELECT * FROM articoli");
-                    while ($row = $result->fetch_assoc()) {
-                        $art_cod = $row["ART_ID"];
-                        $aut = $row["ART_AUTORE"];
-                        $tit = $row["ART_TITOLO"];
-                        $art = $row["ART_TESTO"];
-                        echo <<<HTML
+                    if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
+                        $res = '';
+                        $result = $conn->query("SELECT * FROM articoli");
+                        while ($row = $result->fetch_assoc()) {
+                            $art_cod = $row["ART_ID"];
+                            $aut = $row["ART_AUTORE"];
+                            $tit = $row["ART_TITOLO"];
+                            $art = $row["ART_TESTO"];
+                            echo <<<HTML
                  <div class = "col s12 ">
                         <div class = "card white z-depth-3">
                             <div class = "card-content black-text">
@@ -52,7 +56,9 @@ $logged = is_logged();
                         </div>
                     </div >
 HTML;
-                    }
+                        }
+                    } else
+                        echo printDenied();
                 }
                 ?>
             </div>

@@ -37,7 +37,12 @@ if ($stmt = $conn->prepare($sql)) {
         $_SESSION["log_nome"] = $log_nome;
         $_SESSION["log_cognome"] = $log_cognome;
         $_SESSION["log_id"] = $log_id;
-        
+        if(strpos($log_ruolo,"admin")!==false){
+            $_SESSION["admin"] =true;
+        }
+        else{
+            $_SESSION["admin"] =false;
+        }
         $_SESSION["just_logged"] = true;
 
         $stmt->close();

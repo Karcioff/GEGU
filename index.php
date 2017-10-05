@@ -23,7 +23,8 @@ if (isset($_GET['branca']) && $_GET['branca'] != "") {
     </head>
     <body>
         <?php
-        draw_navbar($logged);
+        if(isset($_SESSION["admin"])) draw_navbar($logged,$_SESSION["admin"]);
+        else draw_navbar($logged);
         ?>
         <main>
             <!--Inserimento articoli -->
