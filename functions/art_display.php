@@ -30,7 +30,12 @@ function art_find($branca, $is_capo) {
             } else {
                 $foto = explode(",5,5,", $row["ART_FOTO"]);
             }
-            $art = new Articolo($tit, $test, $aut, $data, $foto);
+             if ($row["ART_ALLEGATO"] === "") {
+                $docs = array();
+            } else {
+                $docs = explode(",5,5,", $row["ART_ALLEGATO"]);
+            }
+            $art = new Articolo($tit, $test, $aut, $data,$docs, $foto);
             array_push($articoli, $art);
         }
     }

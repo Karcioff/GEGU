@@ -34,41 +34,42 @@ class Articolo {
     public $autore;
     public $data;
     public $foto;
+    public $docs;
 
-    public function __construct($titolo, $testo, $autore, $data, $foto) {
+    public function __construct($titolo, $testo, $autore, $data, $docs, $foto) {
         $this->titolo = $titolo;
         $this->testo = $testo;
         $this->data = $data;
         $this->autore = $autore;
+        $this->docs = $docs;
         $this->foto = $foto;
     }
 
-//    public function display_images() {
-//        if (count($this->foto) == 0) {
-//            return "";
-//        }
-//        $result = '<div class="slider">
-//                    <ul class="slides">';
-//        foreach ($this->foto as $foto_url) {
-//            $item = '<li>
-//        <img src="' . $foto_url . '">
-//      </li>';
-//            $result = $result . $item;
-//        }
-//        $result = $result . '</ul></div>';
-//        return $result;
-//    }
-    
-        public function display_images() {
+    public function display_images() {
         if (count($this->foto) == 0) {
             return "";
         }
         $result = '<div class="carousel carousel-slider">';
         foreach ($this->foto as $foto_url) {
-            $item = ' <a class="carousel-item" href="#one!"><img class="responsive-img" src="'.$foto_url.'"></a>';
+            $item = ' <a class="carousel-item" href="#one!"><img class="responsive-img" src="' . $foto_url . '"></a>';
             $result = $result . $item;
         }
         $result = $result . '</div>';
+        return $result;
+    }
+
+    public function display_docs() {
+        if (count($this->docs) == 0) {
+            return "";
+        }
+        $result = '<div class="row"> <div class="col s12"> <br>'
+                . '<a class="waves-effect waves-light btn blue" onclick="show_allegati()"><i class="material-icons left">attachment</i>Allegati</a>'
+                . '<div style="display:none" id= "docs_div" >';
+        foreach ($this->docs as $doc) {
+            $item = '<a href="' . $doc . '">' . $doc . '</a>';
+            $result = $result . $item;
+        }
+        $result = $result . '</div> </div> </div>';
         return $result;
     }
 
@@ -79,13 +80,10 @@ class Articolo {
                                 <span class = "card-title blue-text text-darken-4"><b>' . $this->titolo . '</b></span>
                                 <p>' . $this->testo . '</p>
                                 <br>
-                                <small>Autore :' . $this->autore . '</small>
-                            </div>' .
-        $this->display_images() .
-        '<div class = "card-action blue lighten-5 right-align">
-                                <a href = "#" class = "blue-text text-darken-4">Accetta</a>
-                                <a href = "#" class = "blue-text text-darken-4">Rifiuta</a>
-                            </div>
+                                <small>' . $this->autore . '</small>
+                                 <small>, ' . $this->data->format("d-m-Y") . '</small> ' .
+        $this->display_docs() .
+        $this->display_images() . '</div>   
                         </div>
                 </div >';
     }
@@ -102,7 +100,7 @@ function art_date_sort($a, $b) {
     return $ad < $bd ? -1 : 1;
 }
 
-function draw_navbar($login,$admin=false) {
+function draw_navbar($login, $admin = false) {
     if (!$login) {
         echo " <header>
             <div class='navbar-fixed'>    
@@ -165,7 +163,8 @@ function draw_navbar($login,$admin=false) {
                 <li><a href='index.php?branca=rs' class='waves-effect'><i class='material-icons'>directions_walk</i>R/S<span class='new badge' style='margin-left:15px;'>4</span></a></li>
                 <li><a href='#!' class='waves-effect'><i class='material-icons'>terrain</i>Campi estivi</a></li>
         ";
-        if (!$admin) echo '</ul>';
+        if (!$admin)
+            echo '</ul>';
         else {
             echo "
                 <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
@@ -224,7 +223,6 @@ function printLoginForm() {
 HTML;
     return $login;
 }
-
 
 function printDefaultMetadata($title) {
     echo '  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -353,26 +351,35 @@ function draw_uploader() {
             </div>
         </script>';
 }
+
 function getListUsers() {
     include_once './connection/connect.php';
     $lu = "";
     $result = $conn->query("SELECT * FROM login");
     while ($row = $result->fetch_assoc()) {
-        $check = array('', '', '', '','', '', '', '');
+        $check = array('', '', '', '', '', '', '', '');
         $us_cod = $row['LOG_ID'];
         $nome = $row['LOG_NOME'];
         $cognome = $row['LOG_COGNOME'];
         $email = $row['LOG_EMAIL'];
         $username = $row['LOG_USERNAME'];
-        if (strpos($row['LOG_BRANCA'], "coca")!==false) $check[0] = 'checked';
-        if (strpos($row['LOG_BRANCA'], "lc")!==false) $check[1] = 'checked';
-        if (strpos($row['LOG_BRANCA'], "eg")!==false) $check[2] = 'checked';
-        if (strpos($row['LOG_BRANCA'], "rs")!==false) $check[3] = 'checked';
-        
-        if (strpos($row['LOG_RUOLO'], "admin")!==false) $check[4] = 'checked';
-        if (strpos($row['LOG_RUOLO'], "capo")!==false) $check[5] = 'checked';
-        if (strpos($row['LOG_RUOLO'], "redattore")!==false) $check[6] = 'checked';
-        if (strpos($row['LOG_RUOLO'], "cassiere")!==false) $check[7] = 'checked';
+        if (strpos($row['LOG_BRANCA'], "coca") !== false)
+            $check[0] = 'checked';
+        if (strpos($row['LOG_BRANCA'], "lc") !== false)
+            $check[1] = 'checked';
+        if (strpos($row['LOG_BRANCA'], "eg") !== false)
+            $check[2] = 'checked';
+        if (strpos($row['LOG_BRANCA'], "rs") !== false)
+            $check[3] = 'checked';
+
+        if (strpos($row['LOG_RUOLO'], "admin") !== false)
+            $check[4] = 'checked';
+        if (strpos($row['LOG_RUOLO'], "capo") !== false)
+            $check[5] = 'checked';
+        if (strpos($row['LOG_RUOLO'], "redattore") !== false)
+            $check[6] = 'checked';
+        if (strpos($row['LOG_RUOLO'], "cassiere") !== false)
+            $check[7] = 'checked';
         $lu .= "
     <li id =\"li_$us_cod\">
         <div class=\"collapsible-header\" ><i class=\"material-icons\">face</i>$nome $cognome</div>
@@ -441,7 +448,8 @@ function draw_btn_new($link) {
           <a class=\"btn-floating btn-large waves-effect waves-light blue darken-4\" href=\"$link\"><i class=\"material-icons\">add</i></a>
     </div>";
 }
-function printDenied(){
+
+function printDenied() {
     return <<<HTML
                         <div class="row">
                             <a href="https://it.wikipedia.org/wiki/Hydrochoerus_hydrochaeris"><img src="images/capibara.jpg" class="gegu-circle" style="width:100%;"></a>

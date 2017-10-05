@@ -26,3 +26,12 @@ function toast_welcome(username) {
     var message = "Buongiorno " + username;
     Materialize.toast(message, 4000);
 }
+
+function show_allegati(){
+        var x = document.getElementById("docs_div");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
