@@ -175,7 +175,7 @@ function draw_navbar($login,$admin=false) {
         else {
             echo "
                 <li><a href='insertart.php' class='waves-effect'><i class='material-icons'>comment</i>Aggiungi articolo</a></li>
-                <li><a href='gest_articoli.php' class='waves-effect'><i class='material-icons'>chat</i>Gestisci articoli</a></li>
+                <li><a href='gest_articoli.php' class='waves-effect'><i class='material-icons'>forum</i>Gestisci articoli</a></li>
                 <li><a href='gest_users.php' class='waves-effect'><i class='material-icons'>face</i>Gestisci utenti</a></li>
                 </ul>
             ";
@@ -467,7 +467,7 @@ function draw_btn_new($link) {
 function printDenied(){
     return <<<HTML
                         <div class="row">
-                            <img src="images/capibara.jpg" class="gegu-circle" style="width:100%;">
+                            <a href="https://it.wikipedia.org/wiki/Hydrochoerus_hydrochaeris"><img src="images/capibara.jpg" class="gegu-circle" style="width:100%;"></a>
                                 <div class="caption center-align">
                                      <h3>Questo capibara asserisce che non sei admin!</h3>
                                      <h5 class="light">E ti chiede di cambiare pagina.</h5>
